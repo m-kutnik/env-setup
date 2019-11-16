@@ -9,6 +9,11 @@ sudo apt install -y git
 # Install xclip
 sudo apt install -y xclip
 
+# Install Menlo font
+mkdir -p ~/.fonts
+git clone https://github.com/abertsch/Menlo-for-Powerline.git ~/.fonts/menlo
+fc-cache -vf ~/.fonts
+
 # Install zsh
 sudo apt install -y zsh
 
@@ -80,6 +85,8 @@ code --install-extension shinnn.stylelint
 code --install-extension Gruntfuggly.todo-tree
 code --install-extension vscode-icons-team.vscode-icons
 
+# Install Thunderbird
+sudo apt install thunderbird
+
 # Finish
 zsh
-
