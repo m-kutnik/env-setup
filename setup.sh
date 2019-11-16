@@ -36,8 +36,8 @@ npm config set prefix '~/.npm-global'
 # Install Brave
 sudo apt install -y apt-transport-https
 curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
-source /etc/os-release
-echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta-${UBUNTU_CODENAME}.list
+. /etc/os-release
+echo "deb [arch=amd64] https://brave-browser-apt-beta.s3.brave.com/ $UBUNTU_CODENAME main" | sudo tee /etc/apt/sources.list.d/brave-browser-beta.list
 sudo apt update
 sudo apt install -y brave-browser-beta
 
