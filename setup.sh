@@ -13,13 +13,7 @@ sudo apt install -y xclip
 sudo apt install -y zsh
 
 # Install OhMyZSH
-sudo apt install -y curl
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
-sudo sh -c "echo 'deb http://download.opensuse.org/repositories/shells:/zsh-users:/zsh-completions/xUbuntu_19.04/ /' > /etc/apt/sources.list.d/shells:zsh-users:zsh-completions.list"
-wget -nv https://download.opensuse.org/repositories/shells:zsh-users:zsh-completions/xUbuntu_19.04/Release.key -O Release.key
-sudo apt-key add - < Release.key
-sudo apt update
-sudo apt install -y zsh-completions
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 
 # Install Powerline-fonts
 sudo apt install -y fonts-powerline
