@@ -25,7 +25,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/th
 curl -fsSL https://raw.githubusercontent.com/m-kutnik/env-setup/master/p10k.zsh_config > ~/.p10k.zsh
 curl -fsSL https://raw.githubusercontent.com/m-kutnik/env-setup/master/zshrc_config > ~/.zshrc
 
-source ~/.zshrc
+zsh ~/.zshrc
 # Install N and Node
 mkdir -p ~/.local/bin
 (cd ~/.local/bin && curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n && bash n latest)
