@@ -49,9 +49,9 @@ sudo apt install -y spotify-client
 
 # Install Gitkraken
 TEMP_DEB="$(mktemp)" &&
-wget -O "$TEMP_DEB" 'https://release.gitkraken.com/linux/gitkraken-amd64.deb' &&
-sudo apt install "$TEMP_DEB"
-rm -f "$TEMP_DEB"
+wget -O "$TEMP_DEB.deb" 'https://release.gitkraken.com/linux/gitkraken-amd64.deb' &&
+sudo apt install "$TEMP_DEB.deb"
+rm -f "$TEMP_DEB.deb"
 
 # Install VSCode
 sudo apt install -y software-properties-common apt-transport-https wget
