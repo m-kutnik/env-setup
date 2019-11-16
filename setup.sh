@@ -13,13 +13,13 @@ sudo apt install -y xclip
 sudo apt install -y zsh
 
 # Install OhMyZSH
-git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions || true
 
 # Install Powerline-fonts
 sudo apt install -y fonts-powerline
 
 # Install powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k || true
 
 # Load ZSH config
 curl -fsSL https://raw.githubusercontent.com/m-kutnik/env-setup/master/p10k.zsh_config > ~/.p10k.zsh
