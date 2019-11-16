@@ -61,6 +61,7 @@ sudo apt update
 sudo apt install -y code
 
 # Import VSCode settings
+mkdir -p ~/.config/Code/User/
 curl -fsSL https://raw.githubusercontent.com/m-kutnik/env-setup/master/vscode_config > ~/.config/Code/User/settings.json
 
 # Install VSCode extensions
