@@ -47,6 +47,17 @@ mkdir -p ~/.local/bin
 mkdir -p ~/.npm-global
 npm config set prefix '~/.npm-global'
 
+# Install Yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+
+# Install VueCLI
+npm install -g @vue/cli
+
+# Install ESLint
+npm install -g eslint
+
 # Install Brave
 sudo apt install -y apt-transport-https
 curl -s https://brave-browser-apt-beta.s3.brave.com/brave-core-nightly.asc | sudo apt-key --keyring /etc/apt/trusted.gpg.d/brave-browser-beta.gpg add -
