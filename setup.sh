@@ -6,11 +6,16 @@ sudo apt dist-upgrade -y
 # Install git
 sudo apt install -y git
 
+# Install ruby and colorls
+sudo apt install ruby-full
+gem install colorls
+
 # Install xclip
 sudo apt install -y xclip
 
-# Install Menlo font
+# Install fonts
 mkdir -p ~/.fonts
+wget -q --show-progress -P ~/.fonts 'https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true' -O 'Fira Code Mono.ttf'
 git clone https://github.com/abertsch/Menlo-for-Powerline.git ~/.fonts/menlo
 fc-cache -vf ~/.fonts
 
@@ -19,6 +24,10 @@ sudo apt install -y zsh
 
 # Install OhMyZSH
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions || true
+
+# Install ZSH plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Install Powerline-fonts
 sudo apt install -y fonts-powerline
