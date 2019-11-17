@@ -88,5 +88,7 @@ code --install-extension vscode-icons-team.vscode-icons
 # Install Thunderbird
 sudo apt install thunderbird
 
+# Install Docker (TODO)
+
 # Finish
 zsh
