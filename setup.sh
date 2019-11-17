@@ -104,6 +104,7 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension shinnn.stylelint
 code --install-extension Gruntfuggly.todo-tree
 code --install-extension vscode-icons-team.vscode-icons
+code --install-extension eamodio.gitlens
 
 # Install Thunderbird
 sudo apt install thunderbird
