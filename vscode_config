@@ -51,9 +51,10 @@
    ],
    "workbench.iconTheme":"vscode-icons",
    "editor.fontLigatures":true,
-   "editor.fontFamily":"Fira Code",
+   "editor.fontFamily":"FiraCode Nerd Font",
    "git.autofetch":true,
    "less.validate": false,
    "editor.renderIndentGuides": false,
-   "terminal.integrated.fontFamily": "Menlo for Powerline"
+   "terminal.integrated.fontFamily": "Menlo for Powerline",
+   "terminal.integrated.shell.linux": "zsh"
 }
