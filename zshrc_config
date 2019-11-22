@@ -10,9 +10,7 @@ bindkey '\e[B' history-beginning-search-forward
 
 # If you come from bash you might have to change your $PATH.
 export N_PREFIX=$HOME/.n
-export PATH=$HOME/.local/bin:/usr/local/bin:$N_PREFIX/bin:$HOME/.npm-global/bin:$HOME/.gem/bin:$PATH
-export GEM_HOME=$HOME/.gem
-export GEM_PATH=$HOME/.gem
+export PATH=$HOME/.local/bin:/usr/local/bin:$N_PREFIX/bin:$HOME/.npm-global/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
