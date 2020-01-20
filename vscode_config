@@ -5,66 +5,7 @@
    "editor.cursorBlinking":"smooth",
    "editor.cursorStyle":"line",
    "workbench.sideBar.location":"right",
-   "window.menuBarVisibility":"toggle",{
-   "editor.tabSize":2,
-   "editor.wordWrap":"on",
-   "editor.minimap.enabled":true,
-   "editor.cursorBlinking":"smooth",
-   "editor.cursorStyle":"line",
-   "workbench.sideBar.location":"right",
    "window.menuBarVisibility":"toggle",
-   "files.insertFinalNewline":true,
-   "css.lint.duplicateProperties":"warning",
-   "css.lint.zeroUnits":"warning",
-   "css.lint.float":"warning",
-   "scss.lint.duplicateProperties":"warning",
-   "scss.lint.zeroUnits":"warning",
-   "scss.lint.float":"warning",
-   "files.eol":"\n",
-   // "terminal.external.linuxExec":"zsh",
-   "telemetry.enableCrashReporter":false,
-   "telemetry.enableTelemetry":false,
-   "eslint.options":{
-      "extensions":[
-         ".js",
-         ".vue"
-      ]
-   },
-   "eslint.validate":[
-      {
-         "autoFix":true,
-         "language":"javascript"
-      },
-      {
-         "autoFix":true,
-         "language":"vue"
-      },
-      "javascript",
-      "javascriptreact"
-   ],
-   "emmet.showAbbreviationSuggestions":true,
-   "emmet.showExpandedAbbreviation":"always",
-   "emmet.triggerExpansionOnTab":true,
-   "emmet.includeLanguages":{
-      "vue-html":"html",
-      "vue":"html"
-   },
-   "stylelint.enable":true,
-   "css.validate":false,
-   "scss.validate":false,
-   "importCost.typescriptExtensions":[
-      "\\.tsx?$",
-      "\\.vue$"
-   ],
-   "workbench.iconTheme":"vscode-icons",
-   "editor.fontLigatures":true,
-   "editor.fontFamily":"Fira Code",
-   "git.autofetch":true,
-   "less.validate": false,
-   "editor.renderIndentGuides": false,
-   "terminal.integrated.fontFamily": "Menlo for Powerline"
-}
-
    "files.insertFinalNewline":true,
    "css.lint.duplicateProperties":"warning",
    "css.lint.zeroUnits":"warning",
@@ -110,7 +51,10 @@
    ],
    "workbench.iconTheme":"vscode-icons",
    "editor.fontLigatures":true,
-   "editor.fontFamily":"Fira Code",
+   "editor.fontFamily":"FiraCode Nerd Font",
    "git.autofetch":true,
-   "less.validate":false
+   "less.validate": false,
+   "editor.renderIndentGuides": false,
+   "terminal.integrated.fontFamily": "Menlo for Powerline",
+   "terminal.integrated.shell.linux": "zsh"
 }
