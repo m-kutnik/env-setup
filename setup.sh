@@ -20,6 +20,7 @@ fc-cache -vf ~/.fonts
 sudo apt install -y zsh
 
 # Install OhMyZSH
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions || true
 
 # Install ZSH plugins
