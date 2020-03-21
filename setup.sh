@@ -43,9 +43,8 @@ curl -fsSL https://raw.githubusercontent.com/m-kutnik/env-setup/master/zshrc_con
 zsh ~/.zshrc
 # Install N and Node
 mkdir -p ~/.local/bin
-(cd ~/.local/bin && curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n && bash n latest)
-
 mkdir -p ~/.npm-global
+curl -L https://git.io/n-install | N_PREFIX=~/.n bash -s -- -y latest
 npm config set prefix '~/.npm-global'
 
 # Install Yarn
