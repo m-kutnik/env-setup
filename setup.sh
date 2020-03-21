@@ -32,9 +32,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions || true
 git clone https://github.com/buonomo/yarn-completion ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/yarn-completion || true
 
-# Install Powerline-fonts
-sudo apt install -y fonts-powerline
-
 # Install powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k || true
 
