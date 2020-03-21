@@ -13,7 +13,11 @@ sudo apt install -y xclip
 mkdir -p ~/.fonts
 wget -q --show-progress 'https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true' -P ~/.fonts/
 wget -q --show-progress 'https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.otf?raw=true' -P ~/.fonts/
-git clone https://github.com/abertsch/Menlo-for-Powerline.git ~/.fonts/menlo || true
+wget -q --show-progress 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf' -P ~/.fonts/
+wget -q --show-progress 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf' -P ~/.fonts/
+wget -q --show-progress 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf' -P ~/.fonts/
+wget -q --show-progress 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf' -P ~/.fonts/
+
 fc-cache -vf ~/.fonts
 
 # Install zsh
@@ -21,11 +25,12 @@ sudo apt install -y zsh
 
 # Install OhMyZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions || true
 
 # Install ZSH plugins
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions || true
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting || true
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions || true
+git clone https://github.com/buonomo/yarn-completion ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/yarn-completion || true
 
 # Install Powerline-fonts
 sudo apt install -y fonts-powerline
