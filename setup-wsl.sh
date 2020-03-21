@@ -3,6 +3,9 @@ set -e && set -o errexit
 sudo apt update
 sudo apt dist-upgrade -y 
 
+# Install make
+sudo apt install -y make
+
 # Install git
 sudo apt install -y git
 
