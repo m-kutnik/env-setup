@@ -43,7 +43,6 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/th
 curl -fsSL https://raw.githubusercontent.com/m-kutnik/env-setup/master/p10k.zsh_config > ~/.p10k.zsh
 curl -fsSL https://raw.githubusercontent.com/m-kutnik/env-setup/master/zshrc_config > ~/.zshrc
 
-zsh ~/.zshrc
 # Install N and Node
 mkdir -p ~/.local/bin
 mkdir -p ~/.npm-global
