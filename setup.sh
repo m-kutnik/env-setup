@@ -48,6 +48,8 @@ zsh ~/.zshrc
 mkdir -p ~/.local/bin
 mkdir -p ~/.npm-global
 curl -L https://git.io/n-install | N_PREFIX=~/.n bash -s -- -y latest
+
+zsh # Reload shell
 npm config set prefix '~/.npm-global'
 
 # Install Yarn
