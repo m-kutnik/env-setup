@@ -3,6 +3,12 @@ set -e && set -o errexit
 sudo apt update
 sudo apt dist-upgrade -y 
 
+# Install DNS sync for WSL
+sudo wget https://gist.github.com/matthiassb/9c8162d2564777a70e3ae3cbee7d2e95/raw/b204a9faa2b4c8d58df283ddc356086333e43408/dns-sync.sh -O /etc/init.d/dns-sync.sh
+sudo chmod +x /etc/init.d/dns-sync.sh
+sudo unlink /etc/resolv.conf
+sudo service dns-sync.sh start
+
 # Install make
 sudo apt install -y make
 
