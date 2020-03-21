@@ -55,6 +55,6 @@
    "git.autofetch":true,
    "less.validate": false,
    "editor.renderIndentGuides": false,
-   "terminal.integrated.fontFamily": "Menlo for Powerline",
+   "terminal.integrated.fontFamily": "MesloLGS NF",
    "terminal.integrated.shell.linux": "zsh"
 }
