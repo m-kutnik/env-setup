@@ -4,5 +4,5 @@
 pre-commit:
   commands:
     format:
-      run: bunx oxfmt --no-error-on-unmatched-pattern {staged_files}
+      run: mise run format
       stage_fixed: true

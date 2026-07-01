@@ -16,18 +16,34 @@ and, if you are brave (or stupid) enough to run the full setup, run:
 ./scripts/bash/install.sh
 ```
 
-This will basically run all the setup scripts in the `scripts/bash` directory, so if you are not me, i recommend checking the source code first.
+This will basically run ~all~ most of the setup scripts in the `scripts/bash` directory, so if you are not me, i recommend checking the source code first. You can find more info about each script in the [Bash Scripts](#bash-scripts) section.
 
-The scripts include:
+Most of the env setup is done, it's time to sync the dotfiles - run:
+
+```bash
+mise dotfiles status # shows the status of the dotfiles
+mise dotfiles apply  # applies the dotfiles
+```
+
+Once this is done, you can install the rest of the dependencies by running:
+
+```bash
+mise run brew-extras
+```
+
+We install the extras after the dotfiles are synced to avoid conflicts and hopefully make the process smoother.
+
+## Scripts
+
+### Bash Scripts
 
 | Script                              | Description                                        |
 | ----------------------------------- | -------------------------------------------------- |
 | `install.sh`                        | Full setup, calls other scripts                    |
 | `xcode-install.sh`                  | Installs Xcode                                     |
 | `homebrew-setup.sh`                 | Sets up multi-user homebrew                        |
-| `homebrew-install-brewfile.sh`      | Installs brews/casks from Brewfile                 |
+| `homebrew-install-base.sh`          | Installs baseline homebrew packages                |
+| `homebrew-install-extras.sh`        | Installs homebrew extras                           |
 | `add-current-user-to-brew-group.sh` | Adds current user to brew group                    |
 | `repo-deps.sh`                      | Installs repository dependencies                   |
 | `uninstall.sh`                      | Uninstalls homebrew, removes brew user/group, etc. |
-
-## Mise Setup
