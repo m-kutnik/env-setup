@@ -6,16 +6,22 @@ node = "latest"
 _ = { path = "./node_modules/.bin" }
 
 [tasks]
-install = { run = "./scripts/bash/install.sh" }
-format = { run = "oxfmt && treefmt", depends = ["sync-format-ignore"] }
-sync-format-ignore = { run = "bun scripts/bun/sync-format-ignore.ts" }
-brew-extras = { run = "./scripts/bash/homebrew-install-extras.sh" }
+sync = { run = [
+  "./scripts/bash/install.sh",
+  "mise bootstrap --yes",
+  "./scripts/bash/homebrew-install-extras.sh",
+  "killall Dock",
+  "killall Finder",
+  "killall SystemUIServer",
+], description = "Full initialization, runs all required + optional scripts, links dotfiles" }
+format = { run = "oxfmt && treefmt", description = "Run project-wide formatting", depends = "sync-format-ignore" }
+sync-format-ignore = { run = "bun scripts/bun/sync-format-ignore.ts", hide = true }
 
 [deps]
 bun = { auto = true }
 
 [settings]
-dotfiles = { root = "dotfiles", default_mode = "symlink" }
+dotfiles = { default_mode = "symlink" }
 
 [dotfiles]
 "~/.config/ghostty" = { source = "dotfiles/ghostty/.config/ghostty" }
@@ -25,3 +31,43 @@ dotfiles = { root = "dotfiles", default_mode = "symlink" }
 "~/.zprofile" = { source = "dotfiles/zsh/.zprofile" }
 "~/.zshenv" = { source = "dotfiles/zsh/.zshenv" }
 "~/.zshrc" = { source = "dotfiles/zsh/.zshrc" }
+
+[bootstrap.macos.dock]
+autohide = true
+show_recents = false
+tilesize = 40
+mru_spaces = false
+
+[bootstrap.macos.finder]
+show_all_files = true
+show_status_bar = false
+show_extensions_warning = false
+
+[bootstrap.macos.keyboard]
+fn_state = true
+
+
+[bootstrap.macos.defaults]
+"com.apple.dock" = { show-process-indicators = false, static-only = true, launchanim = false, "wvous-br-corner" = 1, "wvous-tl-corner" = 1, "wvous-tr-corner" = 1, "wvous-bl-corner" = 1 }
+
+"com.apple.finder" = { AppleShowAllExtensions = true, CreateDesktop = false, FXDefaultSearchScope = "SCcf", NewWindowTarget = "Home", ShowExternalHardDrivesOnDesktop = false, ShowHardDrivesOnDesktop = false, ShowMountedServersOnDesktop = false, ShowRemovableMediaOnDesktop = false, _FXShowPosixPathInTitle = true, _FXSortFoldersFirst = true }
+
+NSGlobalDomain = { "com.apple.keyboard.fnState" = true, "com.apple.sound.beep.feedback" = 1, AppleInterfaceStyle = "Dark", NSAutomaticCapitalizationEnabled = false, NSAutomaticDashSubstitutionEnabled = false, NSAutomaticPeriodSubstitutionEnabled = false, NSAutomaticQuoteSubstitutionEnabled = false, NSDocumentSaveNewDocumentsToCloud = false, "com.apple.mouse.linear" = true }
+
+"com.apple.AppleMultitouchTrackpad" = { TrackpadRotate = true }
+
+"com.apple.driver.AppleBluetoothMultitouch.trackpad" = { TrackpadRotate = true }
+
+"com.apple.LaunchServices" = { LSQuarantine = false }
+
+"com.apple.controlcenter" = { BatteryShowPercentage = false, NowPlaying = false }
+
+"com.apple.loginwindow" = { GuestEnabled = false, DisableConsoleAccess = true }
+
+# Fn key behavior
+"com.apple.hitoolbox" = { AppleFnUsageType = "Do Nothing" }
+
+"com.apple.screencapture" = { include-date = false, save-selections = false, target = "clipboard" }
+
+# Startup chime off
+"com.apple.Accessibility" = { StartupSoundEnabled = false }

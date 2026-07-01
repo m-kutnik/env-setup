@@ -18,24 +18,21 @@ and, if you are brave (or stupid) enough to run the full setup, run:
 
 This will basically run ~all~ most of the setup scripts in the `scripts/bash` directory, so if you are not me, i recommend checking the source code first. You can find more info about each script in the [Bash Scripts](#bash-scripts) section.
 
-Most of the env setup is done, it's time to sync the dotfiles - run:
+The basic setup is done, now just run:
 
 ```bash
-mise dotfiles status # shows the status of the dotfiles
-mise dotfiles apply  # applies the dotfiles
+mise run sync
 ```
 
-Once this is done, you can install the rest of the dependencies by running:
+## Mise
 
-```bash
-mise run brew-extras
-```
-
-We install the extras after the dotfiles are synced to avoid conflicts and hopefully make the process smoother.
+Most of the stuff is directly configured by mise or by it calling the other scripts - check the `mise.toml` file for more info.
 
 ## Scripts
 
 ### Bash Scripts
+
+Path: `./scripts/bash`
 
 | Script                              | Description                                        |
 | ----------------------------------- | -------------------------------------------------- |
@@ -47,3 +44,11 @@ We install the extras after the dotfiles are synced to avoid conflicts and hopef
 | `add-current-user-to-brew-group.sh` | Adds current user to brew group                    |
 | `repo-deps.sh`                      | Installs repository dependencies                   |
 | `uninstall.sh`                      | Uninstalls homebrew, removes brew user/group, etc. |
+
+### Bun Scripts
+
+Path: `./scripts/bun`
+
+| Script                  | Description                                                                 |
+| ----------------------- | --------------------------------------------------------------------------- |
+| `sync-format-ignore.ts` | Adds things `.gitignore` and `.gitmodules` to all formatters' ignore config |
