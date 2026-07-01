@@ -31,6 +31,7 @@
     "oxc": true,
     "tokyo-night": true,
     "vue": true,
+    "toml": true,
     "catppuccin-icons": true
   },
   "edit_predictions": {
