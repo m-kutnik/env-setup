@@ -9,3 +9,6 @@ brew "bun" # JS runtime https://github.com/oven-sh/bun
 # make yubikey work with ssh agent
 brew "yubico-piv-tool"
 brew "libfido2"
+
+cask "font-jetbrains-mono-nerd-font"
+cask "font-meslo-for-powerlevel10k"
