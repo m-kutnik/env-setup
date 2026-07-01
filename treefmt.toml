@@ -1,0 +1,5 @@
+# The formatter multiplexer - https://github.com/numtide/treefmt
+[formatter.bash]
+command = "shfmt"
+options = ["-l", "-w"]
+includes = ["scripts/*.sh"]

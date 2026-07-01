@@ -1,0 +1,8 @@
+# Lefthook git hooks configuration
+# https://github.com/evilmartians/lefthook
+
+pre-commit:
+  commands:
+    format:
+      run: bunx oxfmt --no-error-on-unmatched-pattern {staged_files}
+      stage_fixed: true

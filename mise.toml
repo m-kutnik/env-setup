@@ -1,0 +1,9 @@
+[tools]
+bun = "latest"
+node = "latest"
+
+[env]
+_ = { path = "./node_modules/.bin" }
+
+[tasks]
+format = { run = "oxfmt && treefmt" }

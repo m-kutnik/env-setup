@@ -1,0 +1,12 @@
+brew "zoxide" # modern replacement for cd https://github.com/ajeetdsouza/zoxide
+brew "eza" # modern replacement for ls https://github.com/eza-community/eza
+brew "chafa" # images in the terminal https://github.com/hpjansson/chafa
+brew "mise" # development multi-tool https://github.com/jdx/mise
+brew "shfmt" # formatter for shell scripts https://github.com/mvdan/sh
+brew "wget"
+brew "bun" # JS runtime https://github.com/oven-sh/bun
+
+
+# make yubikey work with ssh agent
+brew "yubico-piv-tool"
+brew "libfido2"

@@ -1,0 +1,32 @@
+function nonzero_return() {
+  RETVAL=$?
+  [ $RETVAL -ne 0 ] && echo "[$RETVAL]"
+}
+
+export -f nonzero_return
+
+export PS1="[\u] \w \`nonzero_return\`"$'\xf0\x9f\x8d\xba'" "
+
+export PATH='/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin'
+
+__homebrew_cask_config_path="${HOMEBREW_REPOSITORY:-$(
+  brew --repository)}/Library/Homebrew/cask/config.rb"
+
+if [ -e "${__homebrew_cask_config_path}" ]; then
+  IFS=$'\n' read -a '__homebrew_cask_options' -d '' <<< "$(sed -n \
+      -e 's#^ *\([a-z_]*dir\): *"~\(.*\)",#--\1="\2"#p' \
+      "${__homebrew_cask_config_path}"
+    )" || true
+
+  HOMEBREW_CASK_OPTS=''
+  for __homebrew_cask_option in "${__homebrew_cask_options[@]}"; do
+    HOMEBREW_CASK_OPTS=`
+      `"${HOMEBREW_CASK_OPTS:+${HOMEBREW_CASK_OPTS} }"
+    HOMEBREW_CASK_OPTS=`
+      `"${HOMEBREW_CASK_OPTS}${__homebrew_cask_option}"
+  done
+
+  unset __homebrew_cask_config_path __homebrew_cask_option \
+    __homebrew_cask_options
+  export HOMEBREW_CASK_OPTS
+fi

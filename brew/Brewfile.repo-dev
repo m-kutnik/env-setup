@@ -1,0 +1,5 @@
+# This file includes development dependencies for this repo
+brew "treefmt"
+brew "mise"
+brew "shfmt"
+brew "bun"

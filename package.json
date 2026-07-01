@@ -1,0 +1,10 @@
+{
+  "name": "env-setup",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "lefthook": "^2.1.9",
+    "oxfmt": "^0.57.0"
+  }
+}
