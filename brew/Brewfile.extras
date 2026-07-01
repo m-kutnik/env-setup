@@ -1,1 +1,2 @@
 cask "zed" # Zed editor https://zed.dev
+cask "ghostty" # Terminal emulator https://ghostty.org/
