@@ -6,7 +6,8 @@ brew "shfmt" # formatter for shell scripts https://github.com/mvdan/sh
 brew "wget"
 brew "bun" # JS runtime https://github.com/oven-sh/bun
 
-
 # make yubikey work with ssh agent
 brew "yubico-piv-tool"
 brew "libfido2"
+
+cask "zed" # Zed editor https://zed.dev

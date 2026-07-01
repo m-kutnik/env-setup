@@ -1,3 +1,8 @@
 .DS_Store
 node_modules/
 tmp
+
+# Zed
+dotfiles/zed/.config/zed/*
+!dotfiles/zed/.config/zed/keymap.json
+!dotfiles/zed/.config/zed/settings.json

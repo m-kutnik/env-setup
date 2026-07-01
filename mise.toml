@@ -16,3 +16,4 @@ dotfiles = { root = "dotfiles", default_mode = "symlink" }
 
 [dotfiles]
 "~/.config/ghostty" = { source = "dotfiles/ghostty/.config/ghostty" }
+"~/.config/zed" = { source = "dotfiles/zed/.config/zed" }
