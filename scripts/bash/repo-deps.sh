@@ -18,3 +18,4 @@ cd "$REPO_ROOT"
 run bun install
 
 mise trust
+mise settings experimental=true

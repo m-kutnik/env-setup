@@ -1,0 +1,15 @@
+theme = TokyoNight
+
+keybind = alt+backspace=text:\x1b\x7f
+
+# Enable SSH fall back to a known terminfo entry
+shell-integration-features = ssh-env
+
+macos-option-as-alt = left
+
+# Override default alt+arrow bindings (esc:b/esc:f = readline word nav)
+# to send proper Alt+Arrow escape sequences so tmux-tilish easymode works
+keybind = alt+arrow_left=text:\x1b[1;3D
+keybind = alt+arrow_right=text:\x1b[1;3C
+keybind = alt+arrow_up=text:\x1b[1;3A
+keybind = alt+arrow_down=text:\x1b[1;3B

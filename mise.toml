@@ -7,3 +7,12 @@ _ = { path = "./node_modules/.bin" }
 
 [tasks]
 format = { run = "oxfmt && treefmt" }
+
+[deps]
+bun = { auto = true }
+
+[settings]
+dotfiles = { root = "dotfiles", default_mode = "symlink" }
+
+[dotfiles]
+"~/.config/ghostty" = { source = "dotfiles/ghostty/.config/ghostty" }
