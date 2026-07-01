@@ -5,13 +5,6 @@ import { defineConfig } from "oxfmt";
 
 export default defineConfig({
   ignorePatterns: [
-    ".DS_Store",
-    "*.lock",
-    "*.lockb",
-    "dotfiles/zed/.config/zed/*",
-    "!dotfiles/zed/.config/zed/keymap.json",
-    "!dotfiles/zed/.config/zed/settings.json",
-    "node_modules/",
-    "tmp",
+    // $MARKER$
   ],
 });

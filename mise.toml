@@ -7,7 +7,8 @@ _ = { path = "./node_modules/.bin" }
 
 [tasks]
 install = { run = "./scripts/bash/install.sh" }
-format = { run = "oxfmt && treefmt" }
+format = { run = "oxfmt && treefmt", depends = ["sync-format-ignore"] }
+sync-format-ignore = { run = "bun scripts/bun/sync-format-ignore.ts" }
 brew-extras = { run = "./scripts/bash/homebrew-install-extras.sh" }
 
 [deps]
