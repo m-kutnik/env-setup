@@ -1,5 +1,5 @@
 /**
- * Regenerate ignore patterns in oxfmt.config.ts and treefmt.toml.
+ * Regenerate ignore patterns in oxfmt.config.ts.
  * Sources: .gitignore, .gitmodules.
  *
  * Usage: bun scripts/sync-format-ignore.ts
@@ -26,15 +26,6 @@ const fileContent = oxfmtText.replace(/^\s*\/\/ \$MARKER\$/m, oxfmtEntries);
 
 await Bun.write(resolve(repoRoot, "oxfmt.config.ts"), fileContent);
 log.success(`Updated oxfmt.config.ts`);
-
-// Treefmt - only need git submodules, follows .gitignore by default
-const treefmtTemplate = resolve(import.meta.dir, "format-ignore-templates/treefmt.toml");
-const treefmtText = await Bun.file(treefmtTemplate).text();
-const treefmtEntries = submodulePaths.map((p) => `    "${p}",`).join("\n");
-const treefmtContent = treefmtText.replace(/^\s*# \$MARKER\$/m, treefmtEntries);
-
-await Bun.write(resolve(repoRoot, "treefmt.toml"), treefmtContent);
-log.success(`Updated treefmt.toml`);
 
 async function getModulesPaths(): Promise<string[]> {
   const gitmodulesPath = resolve(repoRoot, ".gitmodules");
