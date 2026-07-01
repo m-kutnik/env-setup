@@ -2,4 +2,4 @@
 [formatter.bash]
 command = "shfmt"
 options = ["-l", "-w"]
-includes = ["scripts/*.sh"]
+includes = ["*.sh", "*.zsh"]
