@@ -8,3 +8,16 @@ tmp
 dotfiles/zed/.config/zed/*
 !dotfiles/zed/.config/zed/keymap.json
 !dotfiles/zed/.config/zed/settings.json
+
+# Pi
+dotfiles/pi/.pi/agent/bin/
+dotfiles/pi/.pi/agent/sessions/
+dotfiles/pi/.pi/agent/cache/
+dotfiles/pi/.pi/agent/auth.json
+dotfiles/pi/.pi/agent/trust.json
+dotfiles/pi/.pi/agent/run-history.jsonl
+
+dotfiles/pi/.pi/agent/intercom/*.pid
+dotfiles/pi/.pi/agent/intercom/*.sock
+
+dotfiles/pi/.pi/pi-acp/

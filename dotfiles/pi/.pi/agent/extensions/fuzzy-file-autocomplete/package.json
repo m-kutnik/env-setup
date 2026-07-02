@@ -1,0 +1,13 @@
+{
+  "name": "fuzzy-file-autocomplete",
+  "private": true,
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*"
+  },
+  "pi": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

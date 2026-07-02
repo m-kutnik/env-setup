@@ -1,3 +1,7 @@
+import { resolve } from "node:path";
+
+export const REPO_ROOT = resolve(import.meta.dir, "../../..");
+
 export const color = {
   red: (s: string) => `\x1b[0;31m${s}\x1b[0m`,
   green: (s: string) => `\x1b[0;32m${s}\x1b[0m`,

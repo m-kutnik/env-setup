@@ -1,0 +1,21 @@
+[submodule "dotfiles/pi/.pi/pi-extensions/pi-hashline-readmap"]
+	path = dotfiles/pi/.pi/pi-extensions/pi-hashline-readmap
+	url = https://github.com/m-kutnik/pi-hashline-readmap.git
+[submodule "dotfiles/pi/.pi/pi-extensions/pi-web-access"]
+	path = dotfiles/pi/.pi/pi-extensions/pi-web-access
+	url = https://github.com/nicobailon/pi-web-access.git
+[submodule "dotfiles/pi/.pi/pi-extensions/pi-subagents"]
+	path = dotfiles/pi/.pi/pi-extensions/pi-subagents
+	url = https://github.com/nicobailon/pi-subagents.git
+[submodule "dotfiles/pi/.pi/pi-extensions/slop-review"]
+	path = dotfiles/pi/.pi/pi-extensions/slop-review
+	url = https://github.com/dbachelder/slop-review.git
+[submodule "dotfiles/pi/.pi/pi-extensions/pi-prompt-template-model"]
+	path = dotfiles/pi/.pi/pi-extensions/pi-prompt-template-model
+	url = https://github.com/nicobailon/pi-prompt-template-model.git
+[submodule "dotfiles/pi/.pi/pi-extensions/pi-plannotator/source"]
+	path = dotfiles/pi/.pi/pi-extensions/pi-plannotator/source
+	url = https://github.com/backnotprop/plannotator.git
+[submodule "dotfiles/pi/.pi/pi-extensions/tmustier-pi-extensions"]
+	path = dotfiles/pi/.pi/pi-extensions/tmustier-pi-extensions
+	url = https://github.com/tmustier/pi-extensions.git

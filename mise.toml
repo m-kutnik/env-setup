@@ -6,14 +6,9 @@ node = "latest"
 _ = { path = "./node_modules/.bin" }
 
 [tasks]
-sync = { run = [
-  "./scripts/bash/install.sh",
-  "mise bootstrap --yes",
-  "./scripts/bash/homebrew-install-extras.sh",
-  "killall Dock",
-  "killall Finder",
-  "killall SystemUIServer",
-], description = "Full initialization, runs all required + optional scripts, links dotfiles" }
+sync = { run = "./scripts/bash/install.sh && mise bootstrap --yes && ./scripts/bash/homebrew-install-extras.sh && mise run pi-install-extension-deps", depends_post = "restart-macos-apps", description = "Full initialization, runs all required + optional scripts, links dotfiles" }
+pi-install-extension-deps = { run = "bun scripts/bun/pi-install-extension-deps.ts", description = "Installs dependencies for Pi extensions" }
+restart-macos-apps = { run = "killall Dock && killall Finder && killall SystemUIServer", description = "Restart macOS apps after configuration changes" }
 format = { run = "oxfmt && treefmt", description = "Run project-wide formatting", depends = "sync-format-ignore" }
 sync-format-ignore = { run = "bun scripts/bun/sync-format-ignore.ts", hide = true }
 

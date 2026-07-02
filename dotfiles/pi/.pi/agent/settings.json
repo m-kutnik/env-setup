@@ -1,0 +1,60 @@
+{
+  "lastChangelogVersion": "0.80.3",
+  "transport": "sse",
+  "theme": "tokyo-night",
+  "defaultProvider": "xiaomi",
+  "defaultModel": "mimo-v2.5-pro",
+  "defaultThinkingLevel": "medium",
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "steeringMode": "all",
+  "collapseChangelog": true,
+  "doubleEscapeAction": "tree",
+  "packages": [
+    "npm:pi-intercom",
+    {
+      "source": "../pi-extensions/pi-hashline-readmap"
+    },
+    {
+      "source": "../pi-extensions/pi-intercom"
+    },
+    {
+      "source": "../pi-extensions/pi-plannotator"
+    },
+    {
+      "source": "../pi-extensions/pi-prompt-template-model"
+    },
+    {
+      "source": "../pi-extensions/pi-subagents"
+    },
+    {
+      "source": "../pi-extensions/pi-web-access"
+    },
+    {
+      "source": "../pi-extensions/slop-review"
+    },
+    {
+      "source": "../pi-extensions/tmustier-pi-extensions",
+      "extensions": [
+        "-agent-guidance/agent-guidance.ts",
+        "-arcade/picman.ts",
+        "-arcade/ping.ts",
+        "-arcade/spice-invaders.ts",
+        "-arcade/tetris.ts",
+        "-code-actions/index.ts",
+        "-files-widget/index.ts",
+        "-arcade/mario-not/mario-not.ts",
+        "-pi-ralph-wiggum/index.ts",
+        "-raw-paste/index.ts",
+        "-session-recap/index.ts",
+        "-tab-status/tab-status.ts"
+      ],
+      "skills": [
+        "-extending-pi/SKILL.md",
+        "-pi-ralph-wiggum/SKILL.md",
+        "-extending-pi/skill-creator/SKILL.md"
+      ]
+    }
+  ]
+}

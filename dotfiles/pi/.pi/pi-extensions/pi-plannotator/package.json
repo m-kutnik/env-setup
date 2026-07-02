@@ -1,0 +1,13 @@
+{
+  "name": "pi-plannotator",
+  "version": "1.0.0",
+  "scripts": {
+    "install": "bun run build.ts --mode install",
+    "postinstall": "bun run build.ts --mode build"
+  },
+  "pi": {
+    "extensions": [
+      "./pi-plannotator/index.ts"
+    ]
+  }
+}

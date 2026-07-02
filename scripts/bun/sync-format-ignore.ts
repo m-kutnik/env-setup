@@ -7,9 +7,7 @@
 
 import { $ } from "bun";
 import { resolve } from "node:path";
-import { log } from "./_utils/logs";
-
-const repoRoot = resolve(import.meta.dir, "../..");
+import { log, REPO_ROOT } from "./_utils/helpers";
 
 // Merge, deduplicate, sort
 const submodulePaths = await getModulesPaths();
@@ -24,15 +22,15 @@ const oxfmtText = await Bun.file(oxfmtTemplate).text();
 const oxfmtEntries = allPaths.map((p) => `    "${p}",`).join("\n");
 const fileContent = oxfmtText.replace(/^\s*\/\/ \$MARKER\$/m, oxfmtEntries);
 
-await Bun.write(resolve(repoRoot, "oxfmt.config.ts"), fileContent);
+await Bun.write(resolve(REPO_ROOT, "oxfmt.config.ts"), fileContent);
 log.success(`Updated oxfmt.config.ts`);
 
 async function getModulesPaths(): Promise<string[]> {
-  const gitmodulesPath = resolve(repoRoot, ".gitmodules");
+  const gitmodulesPath = resolve(REPO_ROOT, ".gitmodules");
   if (!(await Bun.file(gitmodulesPath).exists())) return [];
 
   const output = await $`git config --file .gitmodules --get-regexp ${"\\.path$"}`
-    .cwd(repoRoot)
+    .cwd(REPO_ROOT)
     .text();
 
   return output
@@ -43,7 +41,7 @@ async function getModulesPaths(): Promise<string[]> {
 }
 
 async function getGitignorePatterns(): Promise<string[]> {
-  const gitignorePath = resolve(repoRoot, ".gitignore");
+  const gitignorePath = resolve(REPO_ROOT, ".gitignore");
   if (!(await Bun.file(gitignorePath).exists())) return [];
 
   const content = await Bun.file(gitignorePath).text();
