@@ -14,5 +14,6 @@ run mise bootstrap --yes
 
 "$SCRIPT_DIR/homebrew-install-extras.sh" "$@"
 "$SCRIPT_DIR/optional-defaults.sh" "$@"
+"$SCRIPT_DIR/restart-apps.sh" "$@"
 
 success "Setup complete"

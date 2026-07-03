@@ -49,6 +49,6 @@ Path: `./scripts/bash`
 
 Path: `./scripts/bun`
 
-| Script                  | Description                                                                 |
-| ----------------------- | --------------------------------------------------------------------------- |
-| `sync-format-ignore.ts` | Adds things `.gitignore` and `.gitmodules` to all formatters' ignore config |
+| Script           | Description                                                                  |
+| ---------------- | ---------------------------------------------------------------------------- |
+| `sync-ignore.ts` | Adds things `.gitignore` and `.gitmodules` to formatters/IDE's ignore config |
