@@ -44,13 +44,13 @@ skipped() {
   echo -e "${DARK_GREY}⏭  $1${RESET}"
 }
 
-AUTO_YES=0
-if [[ "${1:-}" == "--yes" || "${1:-}" == "-y" ]]; then
-  AUTO_YES=1
+FORCE=0
+if [[ "${1:-}" == "--force" || "${1:-}" == "-f" ]]; then
+  FORCE=1
 fi
 
 confirm() {
-  if [ "$AUTO_YES" -eq 1 ]; then
+  if [ "$FORCE" -eq 1 ]; then
     return 0
   fi
   local prompt="$1"

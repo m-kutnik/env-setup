@@ -9,4 +9,9 @@ source "$SCRIPT_DIR/_utils/helpers.sh"
 "$SCRIPT_DIR/homebrew-install-base.sh" "$@"
 "$SCRIPT_DIR/repo-deps.sh" "$@"
 
+log "Running mise bootstrap..."
+run mise bootstrap --yes
+
+"$SCRIPT_DIR/homebrew-install-extras.sh" "$@"
+
 success "Setup complete"

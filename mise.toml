@@ -6,7 +6,7 @@ node = "latest"
 _ = { path = "./node_modules/.bin" }
 
 [tasks]
-sync = { run = "./scripts/bash/install.sh && mise bootstrap --yes && ./scripts/bash/homebrew-install-extras.sh && mise run pi-install-extension-deps", depends_post = "restart-macos-apps", description = "Full initialization, runs all required + optional scripts, links dotfiles" }
+sync = { run = "./scripts/bash/install.sh && mise run pi-install-extension-deps", depends_post = "restart-macos-apps", description = "Full initialization, runs all required + optional scripts, links dotfiles" }
 pi-install-extension-deps = { run = "bun scripts/bun/pi-install-extension-deps.ts", description = "Installs dependencies for Pi extensions" }
 restart-macos-apps = { run = "killall Dock && killall Finder && killall SystemUIServer", description = "Restart macOS apps after configuration changes" }
 format = { run = "oxfmt && treefmt", description = "Run project-wide formatting", depends = "sync-format-ignore" }
@@ -27,6 +27,8 @@ dotfiles = { default_mode = "symlink" }
 "~/.zshenv" = { source = "dotfiles/zsh/.zshenv" }
 "~/.zshrc" = { source = "dotfiles/zsh/.zshrc" }
 
+# System defaults managed by mise, these values are always set
+# For optional settings, see scripts/bash/system-defaults
 [bootstrap.macos.dock]
 autohide = true
 show_recents = false
@@ -40,7 +42,6 @@ show_extensions_warning = false
 
 [bootstrap.macos.keyboard]
 fn_state = true
-
 
 [bootstrap.macos.defaults]
 "com.apple.dock" = { show-process-indicators = false, static-only = true, launchanim = false, "wvous-br-corner" = 1, "wvous-tl-corner" = 1, "wvous-tr-corner" = 1, "wvous-bl-corner" = 1 }
