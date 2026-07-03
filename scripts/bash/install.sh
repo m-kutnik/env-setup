@@ -13,5 +13,6 @@ log "Running mise bootstrap..."
 run mise bootstrap --yes
 
 "$SCRIPT_DIR/homebrew-install-extras.sh" "$@"
+"$SCRIPT_DIR/optional-defaults.sh" "$@"
 
 success "Setup complete"

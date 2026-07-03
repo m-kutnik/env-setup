@@ -60,3 +60,14 @@ confirm() {
   *) return 1 ;;
   esac
 }
+
+defaults_write_if_absent() {
+  local domain="$1" key="$2" type="$3"
+  shift 3
+  if [ "$FORCE" -eq 1 ] || ! defaults read "$domain" "$key" &>/dev/null; then
+    log "Setting $key"
+    run defaults write "$domain" "$key" "$type" "$@"
+  else
+    skipped "Skipping $key (already set)"
+  fi
+}

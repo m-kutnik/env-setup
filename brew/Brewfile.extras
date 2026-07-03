@@ -1,2 +1,3 @@
 cask "zed" # Zed editor https://zed.dev
 cask "ghostty" # Terminal emulator https://ghostty.org/
+cask "macs-fan-control" # Fan control https://crystalidea.com/macs-fan-control
