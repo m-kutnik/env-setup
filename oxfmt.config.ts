@@ -20,6 +20,7 @@ export default defineConfig({
     "dotfiles/pi/.pi/pi-extensions/pi-hashline-readmap",
     "dotfiles/pi/.pi/pi-extensions/pi-plannotator/source",
     "dotfiles/pi/.pi/pi-extensions/pi-prompt-template-model",
+    "dotfiles/pi/.pi/pi-extensions/pi-skill-creator",
     "dotfiles/pi/.pi/pi-extensions/pi-subagents",
     "dotfiles/pi/.pi/pi-extensions/pi-web-access",
     "dotfiles/pi/.pi/pi-extensions/slop-review",

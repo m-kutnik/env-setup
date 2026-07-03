@@ -55,6 +55,9 @@
         "-pi-ralph-wiggum/SKILL.md",
         "-extending-pi/skill-creator/SKILL.md"
       ]
+    },
+    {
+      "source": "../pi-extensions/pi-skill-creator"
     }
   ]
 }

@@ -19,3 +19,6 @@
 [submodule "dotfiles/pi/.pi/pi-extensions/tmustier-pi-extensions"]
 	path = dotfiles/pi/.pi/pi-extensions/tmustier-pi-extensions
 	url = https://github.com/tmustier/pi-extensions.git
+[submodule "dotfiles/pi/.pi/pi-extensions/pi-skill-creator"]
+	path = dotfiles/pi/.pi/pi-extensions/pi-skill-creator
+	url = https://github.com/S1M0N38/pi-skill-creator.git
