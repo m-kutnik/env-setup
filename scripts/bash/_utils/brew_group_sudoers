@@ -58,3 +58,4 @@ Defaults: %brew env_keep += "https_proxy"
 Defaults: %brew env_keep += "no_proxy"
 
 %brew ALL = (brew) NOPASSWD: ALL
+brew ALL = (root) NOPASSWD: SETENV: /bin/cp, /bin/mv, /bin/rm, /bin/mkdir, /usr/sbin/chown, /bin/chmod, /usr/bin/ditto, /usr/bin/xattr

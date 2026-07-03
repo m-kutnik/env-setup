@@ -15,11 +15,13 @@ fi
 if ! id -u "$BREW_USER" &>/dev/null; then
   log "Creating $BREW_USER user..."
   run sudo sysadminctl -addUser "$BREW_USER" -fullName 'Homebrew' -admin -home "$BREW_HOME" -UID 2137 -shell /bin/bash
-  # run sudo createhomedir -c -u "$BREW_USER"
   run sudo mkdir -p "$BREW_HOME"
   run sudo chown "$BREW_USER":"$BREW_GROUP" "$BREW_HOME"
   run sudo dscl . -create "/Users/$BREW_USER" IsHidden 1
   success "$BREW_USER user created."
+  log "Setting $BREW_USER user password..."
+  sudo passwd "$BREW_USER"
+  success "$BREW_USER password set."
 else
   skipped "$BREW_USER user already exists."
 fi
