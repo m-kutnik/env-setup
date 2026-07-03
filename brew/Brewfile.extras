@@ -5,5 +5,6 @@ cask "raycast" # App launcher https://raycast.com/
 cask "signal" # Signal messenger https://signal.org/
 cask "gitkraken" # Git GUI https://www.gitkraken.com/
 cask "aldente" # Battery manager https://apphousekitchen.com/aldente-overview/
+cask "jordanbaird-ice" # Menu bar https://icemenubar.app/
 
 mas "Amphetamine", id: 937984704
