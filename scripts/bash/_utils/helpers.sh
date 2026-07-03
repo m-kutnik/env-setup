@@ -16,6 +16,7 @@ GREY='\033[90m'
 DARK_GREY='\033[38;5;236m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
 RESET='\033[0m'
 
 run() {
@@ -36,12 +37,15 @@ log() {
 }
 
 success() {
-  echo ""
-  echo -e "${GREEN}✓  $1${RESET}"
+  echo -e "\n${GREEN}✓  $1${RESET}\n"
 }
 
 skipped() {
   echo -e "${DARK_GREY}⏭  $1${RESET}"
+}
+
+warn() {
+  echo -e "${YELLOW}⚠  $1${RESET}"
 }
 
 FORCE=0
@@ -64,10 +68,18 @@ confirm() {
 defaults_write_if_absent() {
   local domain="$1" key="$2" type="$3"
   shift 3
-  if [ "$FORCE" -eq 1 ] || ! defaults read "$domain" "$key" &>/dev/null; then
-    log "Setting $key"
-    run defaults write "$domain" "$key" "$type" "$@"
-  else
-    skipped "Skipping $key (already set)"
+  local desired="$*"
+
+  if [ "$FORCE" -eq 1 ]; then
+    run defaults write "$domain" "$key" "$type" $desired
+    return
+  fi
+
+  local current=$(defaults read "$domain" "$key" 2>/dev/null | tr -d '() \n\t')
+  local compare=$(echo "$desired" | tr -d '() \n\t')
+  if [ -n "$current" ] && [ "$current" != "$compare" ]; then
+    warn "$key is different (current: $current, desired: $desired)"
+  elif [ -z "$current" ]; then
+    run defaults write "$domain" "$key" "$type" $desired
   fi
 }

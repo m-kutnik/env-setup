@@ -8,7 +8,7 @@ log "Setting Macs Fan Control defaults"
 APP="com.crystalidea.macsfancontrol"
 
 defaults_write_if_absent "$APP" CustomPresets -array "QmF0dGVyeXwyLFRCMFQsMjgsMzZ8MixUQjBULDI4LDM2"
-defaults_write_if_absent "$APP" DockIcon -bool false
+defaults_write_if_absent "$APP" DockIcon -int 0
 defaults_write_if_absent "$APP" Fahrenheit -int 0
 defaults_write_if_absent "$APP" menubarIcon -int 2
 
