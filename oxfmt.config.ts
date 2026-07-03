@@ -15,6 +15,7 @@ export default defineConfig({
     "dotfiles/pi/.pi/agent/intercom/*.sock",
     "dotfiles/pi/.pi/agent/run-history.jsonl",
     "dotfiles/pi/.pi/agent/sessions/",
+    "dotfiles/pi/.pi/agent/trust.json",
     "dotfiles/pi/.pi/pi-acp/",
     "dotfiles/pi/.pi/pi-extensions/pi-hashline-readmap",
     "dotfiles/pi/.pi/pi-extensions/pi-plannotator/source",
