@@ -6,7 +6,7 @@ node = "latest"
 _ = { path = "./node_modules/.bin" }
 
 [tasks]
-sync = { run = "./scripts/bash/install.sh && mise run pi-install-extension-deps", description = "Full initialization, runs all required + optional scripts, links dotfiles" }
+sync = { run = "./scripts/bash/install.sh", description = "Full initialization, runs all required + optional scripts, links dotfiles" }
 pi-install-extension-deps = { run = "bun scripts/bun/pi-install-extension-deps.ts", description = "Installs dependencies for Pi extensions" }
 restart-apps = { run = "./scripts/bash/restart-apps.sh", description = "Restart macOS apps after configuration changes" }
 format = { run = "oxfmt && treefmt", description = "Run project-wide formatting", depends = "sync-ignore" }

@@ -24,6 +24,12 @@ The basic setup is done, now just run:
 mise run sync
 ```
 
+To install pi extensions deps, run:
+
+```bash
+mise run pi-install-extension-deps
+```
+
 ## Mise
 
 Most of the stuff is directly configured by mise or by it calling the other scripts - check the `mise.toml` file for more info.
