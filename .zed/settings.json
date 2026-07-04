@@ -3,6 +3,7 @@
 //   scripts/bun/sync-ignore-templates/zed-settings.json
 {
   "file_scan_exclusions": [
+    ".DS_Store",
     "dotfiles/pi/.pi/pi-extensions/pi-hashline-readmap",
     "dotfiles/pi/.pi/pi-extensions/pi-plannotator/source",
     "dotfiles/pi/.pi/pi-extensions/pi-prompt-template-model",

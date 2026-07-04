@@ -3,6 +3,7 @@
 //   scripts/bun/sync-ignore-templates/zed-settings.json
 {
   "file_scan_exclusions": [
+    ".DS_Store"
     // $MARKER$
   ]
 }
