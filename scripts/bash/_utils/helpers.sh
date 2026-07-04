@@ -20,7 +20,7 @@ YELLOW='\033[0;33m'
 RESET='\033[0m'
 
 run() {
-  echo -e "${GREY}$*${RESET}"
+  echo -e "  ${GREY}$*${RESET}"
   local exit_code=0
   local grey_esc reset_esc
   grey_esc=$(printf '\033[38;5;236m')
@@ -34,6 +34,10 @@ run() {
 
 log() {
   echo -e "${WHITE}$1${RESET}"
+}
+
+log-secondary() {
+  echo -e "  ${GREY}$1${RESET}"
 }
 
 success() {
