@@ -4,5 +4,7 @@
 pre-commit:
   commands:
     format:
-      run: mise run format
+      run: CI=1 mise run format
       stage_fixed: true
+    gitleaks:
+      run: gitleaks git --pre-commit --staged
