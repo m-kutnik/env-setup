@@ -52,10 +52,20 @@ warn() {
   echo -e "${YELLOW}⚠  $1${RESET}"
 }
 
+error() {
+  echo -e "${RED}✗  $1${RESET}"
+}
+
 FORCE=0
-if [[ "${1:-}" == "--force" || "${1:-}" == "-f" ]]; then
-  FORCE=1
-fi
+NO_BITWARDEN=0
+BW_OWN_SESSION=0
+BW_SESSION="${BW_SESSION:-}"
+for arg in "$@"; do
+  case "$arg" in
+    --force|-f) FORCE=1 ;;
+    --no-bitwarden) NO_BITWARDEN=1 ;;
+  esac
+done
 
 confirm() {
   if [ "$FORCE" -eq 1 ]; then
@@ -87,3 +97,107 @@ defaults_write_if_absent() {
     run defaults write "$domain" "$key" "$type" $desired
   fi
 }
+
+# Like defaults_write_if_absent but fetches the value from Bitwarden.
+# Last argument is the Bitwarden item name; its password field is used as the value.
+# Skipped entirely when --no-bitwarden is passed.
+# Usage: defaults_write_if_absent_authenticated <domain> <key> <type> <bw-item-name>
+defaults_write_if_absent_authenticated() {
+  local domain="$1" key="$2" type="$3" bw_item="$4"
+
+  if [ "$NO_BITWARDEN" -eq 1 ]; then
+    return
+  fi
+
+  local value
+  value=$(bw_get_password "$bw_item" || true)
+  if [ -z "${value:-}" ]; then
+    warn "Could not retrieve $key from Bitwarden"
+    return
+  fi
+
+  if [ "$FORCE" -eq 1 ]; then
+    log-secondary "Forcing $key write from Bitwarden"
+    defaults write "$domain" "$key" "$type" "$value"
+    return
+  fi
+
+  local current=$(defaults read "$domain" "$key" 2>/dev/null | tr -d '() \n\t')
+  local compare=$(echo "$value" | tr -d '() \n\t')
+  if [ -n "$current" ] && [ "$current" != "$compare" ]; then
+    warn "Authenticated key:$key is different, skipping..."
+  elif [ -z "$current" ]; then
+    log-secondary "Writing $key from Bitwarden"
+    defaults write "$domain" "$key" "$type" "$value"
+  fi
+}
+
+# Unlock Bitwarden vault and store session key in BW_SESSION.
+# Skipped when --no-bitwarden is passed.
+# Usage: bw_unlock
+bw_unlock() {
+  if [ "$NO_BITWARDEN" -eq 1 ]; then
+    skipped "Bitwarden skipped (--no-bitwarden)"
+    return
+  fi
+
+  if ! command -v bw &>/dev/null; then
+    error "Bitwarden CLI not found"
+    exit 1
+  fi
+
+  if [ -n "${BW_SESSION:-}" ]; then
+    return
+  fi
+
+  log-secondary "Unlocking Bitwarden vault…" >&2
+  BW_SESSION=$(bw unlock --raw)
+  export BW_SESSION
+  BW_OWN_SESSION=1
+
+  if [ -z "${BW_SESSION:-}" ]; then
+    error "Bitwarden unlock failed"
+    exit 1
+  fi
+}
+
+# Lock Bitwarden vault and clear session key.
+# Usage: bw_lock
+bw_lock() {
+  if [ "$BW_OWN_SESSION" -eq 1 ] && [ -n "${BW_SESSION:-}" ]; then
+    bw lock --session "$BW_SESSION" --quiet 2>/dev/null || true
+    unset BW_SESSION
+    BW_OWN_SESSION=0
+  fi
+}
+
+# Retrieve a Bitwarden item's password field.
+# Requires bw_unlock to have been called first.
+# Prints the password to stdout; returns 1 on any failure.
+# Usage: bw_get_password <item-name>
+bw_get_password() {
+  local item="$1"
+
+  if [ -z "${BW_SESSION:-}" ]; then
+    bw_unlock
+  fi
+
+  if [ -z "${BW_SESSION:-}" ]; then
+    exit 1
+  fi
+
+  local password
+  password=$(bw get password "$item" --session "$BW_SESSION" 2>/dev/null || true)
+
+  if [ -z "$password" ]; then
+    warn "Could not retrieve password for '$item'"
+    return 1
+  fi
+
+  echo "$password"
+}
+
+# Only trap for cleanup if we're running standalone (BW_SESSION not inherited)
+if [ -z "${BW_SESSION:-}" ]; then
+  trap bw_lock EXIT
+fi

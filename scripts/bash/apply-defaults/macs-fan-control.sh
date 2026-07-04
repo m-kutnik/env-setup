@@ -12,5 +12,7 @@ defaults_write_if_absent "$APP" DockIcon -int 0
 defaults_write_if_absent "$APP" Fahrenheit -int 0
 defaults_write_if_absent "$APP" menubarIcon -int 2
 
+defaults_write_if_absent_authenticated "$APP" License -string "macs-fan-control-plist"
+
 success "Macs Fan Control defaults set"
 unset APP

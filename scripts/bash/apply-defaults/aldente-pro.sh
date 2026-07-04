@@ -58,5 +58,8 @@ defaults_write_if_absent "$APP" SUAutomaticallyUpdate -int 1
 defaults_write_if_absent "$APP" SUEnableAutomaticChecks -int 1
 defaults_write_if_absent "$APP" SUSendProfileInfo -int 0
 
+echo ""
+warn "AlDente needs to be activated in the app, but it will offer you to restore these settings"
+
 success "AlDente Pro defaults set"
 unset APP
