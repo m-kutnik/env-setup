@@ -16,7 +16,7 @@ log "Installing Pi"
 bun add -g --ignore-scripts @earendil-works/pi-coding-agent
 
 "$SCRIPT_DIR/homebrew-install-extras.sh" "$@"
-"$SCRIPT_DIR/optional-defaults.sh" "$@"
+"$SCRIPT_DIR/apply-defaults.sh" "$@"
 "$SCRIPT_DIR/restart-apps.sh" "$@"
 
 success "Setup complete"

@@ -4,6 +4,8 @@ set -euo pipefail
 SCRIPT_DIR="$(dirname "$0")"
 source "$SCRIPT_DIR/_utils/helpers.sh"
 
-for f in "$SCRIPT_DIR"/system-defaults/*.sh; do
+for f in "$SCRIPT_DIR"/apply-defaults/*.sh; do
   bash "$f" "$@"
 done
+
+warn "Some apps may need to be restarted for changes to take effect."
