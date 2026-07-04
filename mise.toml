@@ -1,6 +1,9 @@
 [tools]
+"aqua:numtide/treefmt" = "latest"
 bun = "latest"
+gitleaks = "latest"
 node = "latest"
+shfmt = "latest"
 
 [env]
 _ = { path = "./node_modules/.bin" }
@@ -22,6 +25,7 @@ dotfiles = { default_mode = "symlink" }
 [dotfiles]
 "~/.config/ghostty" = { source = "dotfiles/ghostty/.config/ghostty" }
 "~/.config/launchd-services" = { source = "dotfiles/launchd/.config/launchd-services" }
+"~/.config/mise" = { source = "dotfiles/mise/.config/mise" }
 "~/.agents" = { source = "dotfiles/pi/.agents" }
 "~/.claude" = { source = "dotfiles/pi/.claude" }
 "~/.pi" = { source = "dotfiles/pi/.pi" }
