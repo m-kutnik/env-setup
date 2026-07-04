@@ -130,6 +130,7 @@
     "diagnostics": true,
     "metrics": true
   },
+  "file_scan_exclusions": [".DS_Store"],
   "base_keymap": "VSCode",
   "lsp": {
     "oxlint": {
