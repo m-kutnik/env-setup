@@ -6,3 +6,4 @@ cask "signal" # Signal messenger https://signal.org/
 cask "gitkraken" # Git GUI https://www.gitkraken.com/
 cask "aldente" # Battery manager https://apphousekitchen.com/aldente-overview/
 cask "jordanbaird-ice" # Menu bar https://icemenubar.app/
+cask "localsend" # Local file sharing https://localsend.org/
