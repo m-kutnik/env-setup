@@ -62,8 +62,8 @@ BW_OWN_SESSION=0
 BW_SESSION="${BW_SESSION:-}"
 for arg in "$@"; do
   case "$arg" in
-    --force|-f) FORCE=1 ;;
-    --no-bitwarden) NO_BITWARDEN=1 ;;
+  --force | -f) FORCE=1 ;;
+  --no-bitwarden) NO_BITWARDEN=1 ;;
   esac
 done
 
