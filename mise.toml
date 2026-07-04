@@ -21,6 +21,9 @@ dotfiles = { default_mode = "symlink" }
 [dotfiles]
 "~/.config/ghostty" = { source = "dotfiles/ghostty/.config/ghostty" }
 "~/.config/launchd-services" = { source = "dotfiles/launchd/.config/launchd-services" }
+"~/.agents" = { source = "dotfiles/pi/.agents" }
+"~/.claude" = { source = "dotfiles/pi/.claude" }
+"~/.pi" = { source = "dotfiles/pi/.pi" }
 "~/.config/zed" = { source = "dotfiles/zed/.config/zed" }
 "~/.zsh" = { source = "dotfiles/zsh/.zsh" }
 "~/.p10k.zsh" = { source = "dotfiles/zsh/.p10k.zsh" }

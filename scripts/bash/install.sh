@@ -12,6 +12,9 @@ source "$SCRIPT_DIR/_utils/helpers.sh"
 log "Running mise bootstrap..."
 run mise bootstrap --yes
 
+log "Installing Pi"
+bun add -g --ignore-scripts @earendil-works/pi-coding-agent
+
 "$SCRIPT_DIR/homebrew-install-extras.sh" "$@"
 "$SCRIPT_DIR/optional-defaults.sh" "$@"
 "$SCRIPT_DIR/restart-apps.sh" "$@"
