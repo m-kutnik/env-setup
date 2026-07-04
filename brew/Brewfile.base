@@ -5,6 +5,7 @@ brew "mise" # development multi-tool https://github.com/jdx/mise
 brew "shfmt" # formatter for shell scripts https://github.com/mvdan/sh
 brew "wget"
 brew "bun" # JS runtime https://github.com/oven-sh/bun
+brew "mas" # Mac App Store CLI https://github.com/mas-cli/mas
 
 # make yubikey work with ssh agent
 brew "yubico-piv-tool"
