@@ -20,12 +20,17 @@ dotfiles = { default_mode = "symlink" }
 
 [dotfiles]
 "~/.config/ghostty" = { source = "dotfiles/ghostty/.config/ghostty" }
+"~/.config/launchd-services" = { source = "dotfiles/launchd/.config/launchd-services" }
 "~/.config/zed" = { source = "dotfiles/zed/.config/zed" }
 "~/.zsh" = { source = "dotfiles/zsh/.zsh" }
 "~/.p10k.zsh" = { source = "dotfiles/zsh/.p10k.zsh" }
 "~/.zprofile" = { source = "dotfiles/zsh/.zprofile" }
 "~/.zshenv" = { source = "dotfiles/zsh/.zshenv" }
 "~/.zshrc" = { source = "dotfiles/zsh/.zshrc" }
+
+[bootstrap.macos.launchd.agents.keyboard-remap]
+program = "~/.config/launchd-services/keyboard-remap"
+run_at_load = true
 
 # System defaults managed by mise, these values are always set
 # For optional settings, see scripts/bash/system-defaults

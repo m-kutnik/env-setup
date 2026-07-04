@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Remap left Command (⌘) and left Option (⌥) to swap them.
+# Uses hidutil — does not persist across reboots, so a LaunchAgent
+# (configured in mise.toml) re-applies this on every login.
+
+set -euo pipefail
+
+# Key codes (see Apple Technical Note TN2450)
+LEFT_OPTION=30064771298   # 0x7000000E2
+LEFT_COMMAND=30064771299  # 0x7000000E3
+
+/usr/bin/hidutil property --set "$(cat <<EOF
+{"UserKeyMapping":[
+  {"HIDKeyboardModifierMappingSrc":${LEFT_COMMAND},"HIDKeyboardModifierMappingDst":${LEFT_OPTION}},
+  {"HIDKeyboardModifierMappingSrc":${LEFT_OPTION},"HIDKeyboardModifierMappingDst":${LEFT_COMMAND}}
+]}
+EOF
+)" >/dev/null
