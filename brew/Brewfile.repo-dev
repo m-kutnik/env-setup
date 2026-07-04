@@ -2,5 +2,4 @@
 brew "treefmt"
 brew "mise"
 brew "shfmt"
-brew "bun"
 brew "gitleaks"

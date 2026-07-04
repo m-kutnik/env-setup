@@ -10,6 +10,7 @@ source "$SCRIPT_DIR/_utils/helpers.sh"
 "$SCRIPT_DIR/repo-deps.sh" "$@"
 
 log "Running mise bootstrap..."
+run mise use -g bun
 run mise bootstrap --yes
 
 log "Installing Pi"

@@ -4,7 +4,6 @@ brew "chafa" # images in the terminal https://github.com/hpjansson/chafa
 brew "mise" # development multi-tool https://github.com/jdx/mise
 brew "shfmt" # formatter for shell scripts https://github.com/mvdan/sh
 brew "wget"
-brew "bun" # JS runtime https://github.com/oven-sh/bun
 brew "mas" # Mac App Store CLI https://github.com/mas-cli/mas
 brew "bitwarden-cli" # Bitwarden CLI https://github.com/bitwarden/cli
 
