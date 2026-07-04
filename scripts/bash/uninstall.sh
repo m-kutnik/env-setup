@@ -10,6 +10,22 @@ else
   HOMEBREW_PREFIX=$([[ $(uname -m) == "arm64" ]] && echo /opt/homebrew || echo /usr/local)
 fi
 
+if command -v mise &>/dev/null; then
+  if confirm "Uninstall mise?"; then
+    if confirm "Also remove global config directory (~/.config/mise)?"; then
+      log "Imploding mise and removing config..."
+      run mise implode --config -y
+      success "mise and config removed."
+    else
+      log "Imploding mise (keeping config)..."
+      runmise implode -y
+      success "mise removed."
+    fi
+  else
+    skipped "Skipping mise removal."
+  fi
+fi
+
 if confirm "Remove Homebrew and all related configuration?"; then
   if command -v brew &>/dev/null; then
     log "Uninstalling Homebrew..."
