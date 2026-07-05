@@ -7,3 +7,4 @@ cask "gitkraken" # Git GUI https://www.gitkraken.com/
 cask "aldente" # Battery manager https://apphousekitchen.com/aldente-overview/
 cask "jordanbaird-ice" # Menu bar https://icemenubar.app/
 cask "localsend" # Local file sharing https://localsend.org/
+cask "pearcleaner" # App uninstaller and cleanup https://github.com/alienator88/Pearcleaner
