@@ -9,3 +9,4 @@ cask "jordanbaird-ice@beta" # Menu bar https://icemenubar.app/
 cask "localsend" # Local file sharing https://localsend.org/
 cask "pearcleaner" # App uninstaller and cleanup https://github.com/alienator88/Pearcleaner
 cask "cap" # screen recorder https://cap.so/
+cask "fluidvoice" # dictation app https://altic.dev/fluid
