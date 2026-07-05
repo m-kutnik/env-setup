@@ -16,3 +16,4 @@ cask "mounty" # NTFS support https://mounty.app/
 cask "the-unarchiver" # RAR/7z utility https://theunarchiver.com/
 cask "todoist-app" # Todoist task manager https://todoist.com/
 cask "twingate" # Zero trust VPN https://www.twingate.com/
+cask "yubico-authenticator" # Yubico Authenticator https://www.yubico.com/
