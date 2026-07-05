@@ -12,7 +12,10 @@ import { log, REPO_ROOT } from "./_utils/helpers";
 // Merge, deduplicate, sort
 const submodulePaths = await getModulesPaths();
 const gitignorePatterns = await getGitignorePatterns();
-const allPaths = [...new Set([...submodulePaths, ...gitignorePatterns])].sort(sortPaths);
+const customPaths = [".DS_Store"];
+const allPaths = Array.from(
+  new Set([...submodulePaths, ...gitignorePatterns, ...customPaths]),
+).sort(sortPaths);
 
 // Oxfmt
 const oxfmtTemplate = resolve(import.meta.dir, "sync-ignore-templates/oxfmt.config.ts");
@@ -26,7 +29,9 @@ log.success(`Updated oxfmt.config.ts`);
 // Zed settings - just ignore submodule paths
 const zedSettingsTemplate = resolve(import.meta.dir, "sync-ignore-templates/zed-settings.json");
 const zedSettingsText = await Bun.file(zedSettingsTemplate).text();
-const zedSettingsEntries = submodulePaths.map((p) => `    "${p}",`).join("\n");
+const zedSettingsEntries = Array.from(new Set([...submodulePaths, ...customPaths]))
+  .map((p) => `    "${p}",`)
+  .join("\n");
 const zedSettingsContent = zedSettingsText.replace(/^\s*\/\/ \$MARKER\$/m, zedSettingsEntries);
 
 await Bun.write(resolve(REPO_ROOT, ".zed/settings.json"), zedSettingsContent);

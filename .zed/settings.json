@@ -10,6 +10,7 @@
     "dotfiles/pi/.pi/pi-extensions/pi-subagents",
     "dotfiles/pi/.pi/pi-extensions/pi-web-access",
     "dotfiles/pi/.pi/pi-extensions/slop-review",
-    "dotfiles/pi/.pi/pi-extensions/tmustier-pi-extensions"
+    "dotfiles/pi/.pi/pi-extensions/tmustier-pi-extensions",
+    ".DS_Store"
   ]
 }
