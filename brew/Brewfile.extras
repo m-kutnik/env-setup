@@ -14,3 +14,4 @@ cask "unnaturalscrollwheels" # fix scroll wheel behavior https://github.com/ther
 cask "gyroflow" # Drone video stabilization https://gyroflow.xyz/
 cask "mounty" # NTFS support https://mounty.app/
 cask "the-unarchiver" # RAR/7z utility https://theunarchiver.com/
+cask "todoist-app" # Todoist task manager https://todoist.com/
