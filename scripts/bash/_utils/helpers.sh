@@ -79,6 +79,40 @@ confirm() {
   esac
 }
 
+# Update a value in a JSON file using jq.
+# Usage: update_json <file> <jq_key> <jq_value>
+# Example: update_json "$STORE" ".general_settings.theme" '"dark"'
+update_json() {
+  local file="$1" key="$2" value="$3"
+
+  if ! command -v jq &>/dev/null; then
+    error "jq is required but not found"
+    exit 1
+  fi
+
+  if [ ! -f "$file" ]; then
+    warn "JSON file not found: $file"
+    return 1
+  fi
+
+  local current
+  current=$(jq -r "$key" "$file" 2>/dev/null)
+
+  if [ "$FORCE" -eq 1 ]; then
+    local tmp
+    tmp=$(jq "$key = $value" "$file")
+    echo "$tmp" >"$file"
+    log-secondary "Forced $key = $value"
+  elif [ "$current" = "null" ] || [ -z "$current" ]; then
+    local tmp
+    tmp=$(jq "$key = $value" "$file")
+    echo "$tmp" >"$file"
+    log-secondary "Set $key = $value"
+  elif [ "$current" != "$(echo "$value" | tr -d '\"')" ]; then
+    warn "$key is different (current: $current, desired: $(echo "$value" | tr -d '\"'))"
+  fi
+}
+
 defaults_write_if_absent() {
   local domain="$1" key="$2" type="$3"
   shift 3
