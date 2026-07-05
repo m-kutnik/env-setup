@@ -7,6 +7,7 @@ source "$SCRIPT_DIR/_utils/helpers.sh"
 "$SCRIPT_DIR/xcode-install.sh" "$@"
 "$SCRIPT_DIR/homebrew-setup.sh" "$@"
 "$SCRIPT_DIR/homebrew-install-base.sh" "$@"
+"$SCRIPT_DIR/install-fonts.sh" "$@"
 
 log "Running mise bootstrap..."
 
