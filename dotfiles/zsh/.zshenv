@@ -10,7 +10,8 @@ if [ -n "${ZSH_VERSION-}" ]; then
   # If you are certain that you must export some environment variables
   # in ~/.zshenv (see comments at the top!), do it here:
   #
-  #   export GOPATH=$HOME/go
+  # Ensure system PATH is available for non-interactive shells (git hooks, submodules, etc.)
+  [[ -x /usr/libexec/path_helper ]] && eval "$(/usr/libexec/path_helper -s)"
   #
   # Do not change anything else in this file.
 
