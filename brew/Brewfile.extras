@@ -10,3 +10,4 @@ cask "localsend" # Local file sharing https://localsend.org/
 cask "pearcleaner" # App uninstaller and cleanup https://github.com/alienator88/Pearcleaner
 cask "cap" # screen recorder https://cap.so/
 cask "fluidvoice" # dictation app https://altic.dev/fluid
+cask "unnaturalscrollwheels" # fix scroll wheel behavior https://github.com/ther0n/UnnaturalScrollWheels

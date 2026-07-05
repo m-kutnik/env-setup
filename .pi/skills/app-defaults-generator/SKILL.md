@@ -4,7 +4,7 @@ description: >
   Analyze macOS app preferences and generate a configuration shell script.
   Use when the user wants to gather settings for an installed app, create a
   defaults script, reverse-engineer app configuration, or add a new app to
-  the system-defaults directory. Also triggers on requests like "find config
+  the apply-defaults directory. Also triggers on requests like "find config
   files for X app", "create a defaults script for X", or "what settings does
   X app have".
 allowed-tools: bash read write edit grep find ls
@@ -13,7 +13,7 @@ allowed-tools: bash read write edit grep find ls
 # App Defaults Generator
 
 Analyze a macOS application's preferences and generate a configuration shell script
-that follows the project's existing `scripts/bash/system-defaults/` pattern.
+that follows the project's existing `scripts/bash/apply-defaults/` pattern.
 
 ## Workflow
 
@@ -96,7 +96,7 @@ as a guide if visible. Common groupings:
 
 ### 5. Generate the script
 
-Follow the exact pattern from existing scripts in `scripts/bash/system-defaults/`.
+Follow the exact pattern from existing scripts in `scripts/bash/apply-defaults/`.
 Read one of the existing scripts for reference — `macs-fan-control.sh` or `aldente-pro.sh`.
 
 The template:
@@ -143,8 +143,8 @@ And any observations:
 
 ## Output location
 
-Save the script to `scripts/bash/system-defaults/<app-name-kebab-case>.sh`
+Save the script to `scripts/bash/apply-defaults/<app-name-kebab-case>.sh`
 
 If the user hasn't specified an output location, default to the project's
-`scripts/bash/system-defaults/` directory since that's where the existing
+`scripts/bash/apply-defaults/` directory since that's where the existing
 scripts live.
