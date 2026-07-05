@@ -12,3 +12,4 @@ cask "cap" # screen recorder https://cap.so/
 cask "fluidvoice" # dictation app https://altic.dev/fluid
 cask "unnaturalscrollwheels" # fix scroll wheel behavior https://github.com/ther0n/UnnaturalScrollWheels
 cask "gyroflow" # Drone video stabilization https://gyroflow.xyz/
+cask "mounty" # NTFS support https://mounty.app/
