@@ -9,7 +9,10 @@ shfmt = "latest"
 _ = { path = "./node_modules/.bin" }
 
 [tasks]
-sync = { run = "./scripts/bash/install.sh", description = "Full initialization, runs all required + optional scripts, links dotfiles" }
+sync = { description = "Full initialization, runs all required + optional scripts, links dotfiles", usage = """
+flag "-f --force" help="Accept everything, including potentially destructive actions"
+flag "--no-bitwarden" help="Skips steps that require Bitwarden, like activating apps"
+""", run = "./scripts/bash/install.sh" }
 pi-install-extension-deps = { run = "bun scripts/bun/pi-install-extension-deps.ts", description = "Installs dependencies for Pi extensions" }
 apply-defaults = { run = "./scripts/bash/apply-defaults.sh", description = "Applies app/system default settings" }
 restart-apps = { run = "./scripts/bash/restart-apps.sh", description = "Restart macOS apps after configuration changes" }
@@ -18,6 +21,7 @@ sync-ignore = { run = "bun scripts/bun/sync-ignore.ts", hide = true }
 
 [deps]
 bun = { auto = true }
+git-submodule = { auto = true }
 
 [settings]
 dotfiles = { default_mode = "symlink" }
