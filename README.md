@@ -65,3 +65,9 @@ Path: `./scripts/bun`
 | Script           | Description                                                                  |
 | ---------------- | ---------------------------------------------------------------------------- |
 | `sync-ignore.ts` | Adds things `.gitignore` and `.gitmodules` to formatters/IDE's ignore config |
+
+## Known issues
+
+### `mise ERROR `launchctl bootout [...]` failed: Boot-out failed: 5: Input/output error`
+
+Mise may fail with this error on macOS. You need to run `bootstrap` first, so just replace `bootout` -> `bootstrap`, run the command, and rerun the install script afterward.
