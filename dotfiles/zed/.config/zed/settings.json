@@ -109,7 +109,7 @@
     "shell": {
       "program": "zsh"
     },
-    "font_family": "MesloLGS NF"
+    "font_family": "JetBrainsMono Nerd Font"
   },
   "format_on_save": "on",
   "collaboration_panel": {

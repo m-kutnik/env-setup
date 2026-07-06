@@ -1,4 +1,5 @@
 theme = TokyoNight
+font-family = JetBrainsMono Nerd Font
 
 keybind = alt+backspace=text:\x1b\x7f
 
