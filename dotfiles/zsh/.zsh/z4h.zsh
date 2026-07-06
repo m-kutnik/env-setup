@@ -10,14 +10,14 @@ zstyle ':z4h:' term-shell-integration 'yes'
 
 # Disable z4h autosuggestions in favor of zsh-sage
 zstyle ':z4h:zsh-autosuggestions' channel 'none'
-zstyle ':z4h:fzf' channel 'dev'
-zstyle ':z4h:powerlevel10k' channel 'dev'
-zstyle ':z4h:systemd' channel 'dev'
-zstyle ':z4h:zsh-completions' channel 'dev'
-zstyle ':z4h:zsh-syntax-highlighting' channel 'dev'
-zstyle ':z4h:zsh-history-substring-search' channel 'dev'
-zstyle ':z4h:terminfo' channel 'dev'
-zstyle ':z4h:tmux' channel 'dev'
+# zstyle ':z4h:fzf' channel 'dev'
+# zstyle ':z4h:powerlevel10k' channel 'dev'
+# zstyle ':z4h:systemd' channel 'dev'
+# zstyle ':z4h:zsh-completions' channel 'dev'
+# zstyle ':z4h:zsh-syntax-highlighting' channel 'dev'
+# zstyle ':z4h:zsh-history-substring-search' channel 'dev'
+# zstyle ':z4h:terminfo' channel 'dev'
+# zstyle ':z4h:tmux' channel 'dev'
 
 zstyle ':z4h:fzf-complete' recurse-dirs 'yes'
 zstyle ':z4h:fzf-complete' fzf-bindings tab:repeat
