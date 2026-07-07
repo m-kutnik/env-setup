@@ -60,12 +60,18 @@ FORCE=0
 NO_BITWARDEN=0
 BW_OWN_SESSION=0
 BW_SESSION="${BW_SESSION:-}"
+
+# Parse flags from CLI args
 for arg in "$@"; do
   case "$arg" in
   --force | -f) FORCE=1 ;;
   --no-bitwarden) NO_BITWARDEN=1 ;;
   esac
 done
+
+# Also pick up flags from mise usage env vars
+[[ "${usage_force:-}" == "true" ]] && FORCE=1
+[[ "${usage_no_bitwarden:-}" == "true" ]] && NO_BITWARDEN=1
 
 confirm() {
   if [ "$FORCE" -eq 1 ]; then
