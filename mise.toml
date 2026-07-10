@@ -65,7 +65,7 @@ fn_state = true
 
 "com.apple.finder" = { AppleShowAllExtensions = true, CreateDesktop = false, FXDefaultSearchScope = "SCcf", NewWindowTarget = "Home", ShowExternalHardDrivesOnDesktop = false, ShowHardDrivesOnDesktop = false, ShowMountedServersOnDesktop = false, ShowRemovableMediaOnDesktop = false, _FXShowPosixPathInTitle = true, _FXSortFoldersFirst = true }
 
-NSGlobalDomain = { "com.apple.keyboard.fnState" = true, "com.apple.sound.beep.feedback" = 1, AppleInterfaceStyle = "Dark", NSAutomaticCapitalizationEnabled = false, NSAutomaticDashSubstitutionEnabled = false, NSAutomaticPeriodSubstitutionEnabled = false, NSAutomaticQuoteSubstitutionEnabled = false, NSDocumentSaveNewDocumentsToCloud = false, "com.apple.mouse.linear" = true }
+NSGlobalDomain = { "com.apple.keyboard.fnState" = true, "com.apple.sound.beep.feedback" = 1, AppleInterfaceStyle = "Dark", NSAutomaticCapitalizationEnabled = false, NSAutomaticDashSubstitutionEnabled = false, NSAutomaticPeriodSubstitutionEnabled = false, NSAutomaticQuoteSubstitutionEnabled = false, NSDocumentSaveNewDocumentsToCloud = false, "com.apple.mouse.linear" = true, AppleSpacesSwitchOnActivate = false }
 
 "com.apple.AppleMultitouchTrackpad" = { TrackpadRotate = true }
 
