@@ -17,6 +17,7 @@ export default defineConfig({
     "dotfiles/pi/.pi/agent/sessions/",
     "dotfiles/pi/.pi/agent/trust.json",
     "dotfiles/pi/.pi/pi-acp/",
+    "dotfiles/pi/.pi/pi-extensions/pi-frontier",
     "dotfiles/pi/.pi/pi-extensions/pi-hashline-readmap",
     "dotfiles/pi/.pi/pi-extensions/pi-plannotator/source",
     "dotfiles/pi/.pi/pi-extensions/pi-prompt-template-model",

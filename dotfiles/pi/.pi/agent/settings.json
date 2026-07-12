@@ -58,6 +58,9 @@
     },
     {
       "source": "../pi-extensions/pi-skill-creator"
+    },
+    {
+      "source": "../pi-extensions/pi-frontier/pi-kilocode"
     }
   ]
 }

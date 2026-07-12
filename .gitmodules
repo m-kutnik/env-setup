@@ -22,3 +22,6 @@
 [submodule "dotfiles/pi/.pi/pi-extensions/pi-skill-creator"]
 	path = dotfiles/pi/.pi/pi-extensions/pi-skill-creator
 	url = https://github.com/S1M0N38/pi-skill-creator.git
+[submodule "dotfiles/pi/.pi/pi-extensions/pi-frontier"]
+	path = dotfiles/pi/.pi/pi-extensions/pi-frontier
+	url = https://github.com/sudosubin/pi-frontier.git
