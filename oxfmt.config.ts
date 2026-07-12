@@ -6,6 +6,7 @@ import { defineConfig } from "oxfmt";
 export default defineConfig({
   ignorePatterns: [
     ".DS_Store",
+    ".pi-subagents",
     "*.lock",
     "*.lockb",
     "dotfiles/pi/.pi/agent/auth.json",

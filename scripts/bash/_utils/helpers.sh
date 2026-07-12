@@ -11,6 +11,13 @@ BREW_SUDOERS_SRC="$UTILS_DIR/brew_group_sudoers"
 BREW_BASHRC_SRC="$UTILS_DIR/brew_bashrc"
 BREW_BASHRC_DST="$BREW_HOME/.bashrc"
 
+BIN_DIR="/usr/local/bin/env-setup"
+LOG_DIR="/var/log/env-setup"
+
+LAUNCHD_SYSTEM_DAEMONS_SOURCE_DIR="$REPO_ROOT/launchd/system-daemons"
+NEWSYSLOG_DIR="/etc/newsyslog.d"
+NEWSYSLOG_CONF="$NEWSYSLOG_DIR/env-setup.conf"
+
 WHITE='\033[1;97m'
 GREY='\033[90m'
 DARK_GREY='\033[38;5;236m'

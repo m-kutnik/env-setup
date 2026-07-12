@@ -66,6 +66,33 @@ Path: `./scripts/bun`
 | ---------------- | ---------------------------------------------------------------------------- |
 | `sync-ignore.ts` | Adds things `.gitignore` and `.gitmodules` to formatters/IDE's ignore config |
 
+## macOS launchd services
+
+Configuration in `launchd` directory.
+
+Logs are stored in `/var/log/env-setup`
+
+### Setup
+
+Services are automatically installed during main `install.sh`/`mise run sync` init. Some services like `env-setup.timemachine-ignore-sync` require Full Disk Access (FDA). Granting FDA to `/usr/local/bin/env-setup/fda-launcher` in System Settings → Privacy & Security → Full Disk Access is required.
+
+### Why a C binary (fda-launcher)?
+
+TimeMachine exclusion via `tmutil` requires Full Disk Access (FDA). Granting FDA
+to `/bin/bash` would give every bash script on the system elevated privileges.
+Instead, a small C binary (`fda-launcher`) is compiled, codesigned, and granted
+FDA once. It only execs scripts from `/usr/local/bin/env-setup/` (root-owned,
+not user-writable), acting as a controlled privilege gate.
+
+### Managing services
+
+```bash
+# list all env-setup services
+sudo launchctl print system 2>/dev/null | grep -oE 'env-setup\.[[:alnum:]_.-]+' | sort -u
+# check service status
+sudo launchctl print system/env-setup.timemachine-ignore-sync
+```
+
 ## Known issues
 
 ### `mise ERROR `launchctl bootout [...]` failed: Boot-out failed: 5: Input/output error`

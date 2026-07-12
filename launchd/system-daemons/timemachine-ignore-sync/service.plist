@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>env-setup.timemachine-ignore-sync</string>
+    <key>ProgramArguments</key>
+    <array>
+      <string>/usr/local/bin/env-setup/fda-launcher</string>
+      <string>/usr/local/bin/env-setup/timemachine-ignore-sync</string>
+    </array>
+    <key>StartCalendarInterval</key>
+    <array>
+      <dict>
+        <key>Minute</key>
+        <integer>30</integer>
+      </dict>
+    </array>
+    <key>StandardOutPath</key>
+    <string>/var/log/env-setup/timemachine-ignore-sync.log</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/env-setup/timemachine-ignore-sync.error.log</string>
+</dict>
+</plist>

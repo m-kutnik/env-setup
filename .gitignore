@@ -21,3 +21,4 @@ dotfiles/pi/.pi/agent/intercom/*.pid
 dotfiles/pi/.pi/agent/intercom/*.sock
 
 dotfiles/pi/.pi/pi-acp/
+.pi-subagents

@@ -88,4 +88,56 @@ else
   skipped "Skipping Homebrew removal."
 fi
 
+if confirm "Remove env-setup launchd services?"; then
+  # Unload all env-setup services
+  sudo launchctl print system 2>/dev/null | grep -oE 'env-setup\.[[:alnum:]_.-]+' | sort -u | while read -r service_name; do
+    service_target="system/$service_name"
+    log "Unloading $service_target..."
+    if sudo launchctl bootout "$service_target" 2>/dev/null; then
+      success "Unloaded $service_target."
+    else
+      skipped "$service_target not loaded."
+    fi
+  done
+
+  # Remove plist files
+  for plist in /Library/LaunchDaemons/env-setup.*.plist; do
+    [ -f "$plist" ] || continue
+    log "Removing $plist..."
+    run sudo rm "$plist"
+    success "Removed $plist."
+  done
+
+  # Remove bin directory
+  if [ -d "$BIN_DIR" ]; then
+    log "Removing $BIN_DIR..."
+    run sudo rm -rf "$BIN_DIR"
+    success "$BIN_DIR removed."
+  else
+    skipped "$BIN_DIR not found."
+  fi
+
+  # Remove log directory
+  if [ -d "$LOG_DIR" ]; then
+    log "Removing $LOG_DIR..."
+    run sudo rm -rf "$LOG_DIR"
+    success "$LOG_DIR removed."
+  else
+    skipped "$LOG_DIR not found."
+  fi
+
+  # Remove newsyslog config
+  if [ -f "$NEWSYSLOG_CONF" ]; then
+    log "Removing $NEWSYSLOG_CONF..."
+    run sudo rm "$NEWSYSLOG_CONF"
+    success "$NEWSYSLOG_CONF removed."
+  else
+    skipped "$NEWSYSLOG_CONF not found."
+  fi
+
+  success "Launchd services removed."
+else
+  skipped "Skipping launchd services removal."
+fi
+
 success "Uninstall complete."

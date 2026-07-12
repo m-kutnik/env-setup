@@ -38,6 +38,7 @@ run bun add -g --ignore-scripts @earendil-works/pi-coding-agent
 
 "$SCRIPT_DIR/homebrew-install-extras.sh" "$@"
 "$SCRIPT_DIR/homebrew-install-mas.sh" "$@"
+"$SCRIPT_DIR/install-launchd-services.sh" "$@"
 "$SCRIPT_DIR/apply-defaults.sh" "$@"
 "$SCRIPT_DIR/restart-apps.sh" "$@"
 
