@@ -13,7 +13,7 @@ git clone https://github.com/m-kutnik/env-setup.git && cd env-setup
 and, if you are brave (or stupid) enough to run the full setup, run:
 
 ```bash
-./scripts/bash/install.sh --no-bitwarden
+./scripts/bash/install.sh
 ```
 
 This will basically run ~all~ most of the setup scripts in the `scripts/bash` directory, so if you are not me, i recommend checking the source code first. You can find more info about each script in the [Bash Scripts](#bash-scripts) section.
@@ -53,10 +53,10 @@ Path: `./scripts/bash`
 
 #### `install.sh` flags
 
-| Flag             | Description                                       |
-| ---------------- | ------------------------------------------------- |
-| `-f` / `--force` | Force overwrite existing defaults                 |
-| `--no-bitwarden` | Skip Bitwarden vault unlock (e.g. license import) |
+| Flag             | Description                                         |
+| ---------------- | --------------------------------------------------- |
+| `-f` / `--force` | Force overwrite existing defaults                   |
+| `--auth`         | Enable Bitwarden vault unlock (e.g. license import) |
 
 ### Bun Scripts
 

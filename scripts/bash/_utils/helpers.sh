@@ -64,7 +64,7 @@ error() {
 }
 
 FORCE=0
-NO_BITWARDEN=0
+USE_BITWARDEN=0
 BW_OWN_SESSION=0
 BW_SESSION="${BW_SESSION:-}"
 
@@ -72,13 +72,13 @@ BW_SESSION="${BW_SESSION:-}"
 for arg in "$@"; do
   case "$arg" in
   --force | -f) FORCE=1 ;;
-  --no-bitwarden) NO_BITWARDEN=1 ;;
+  --auth) USE_BITWARDEN=1 ;;
   esac
 done
 
 # Also pick up flags from mise usage env vars
 [[ "${usage_force:-}" == "true" ]] && FORCE=1
-[[ "${usage_no_bitwarden:-}" == "true" ]] && NO_BITWARDEN=1
+[[ "${usage_auth:-}" == "true" ]] && USE_BITWARDEN=1
 
 confirm() {
   if [ "$FORCE" -eq 1 ]; then
@@ -147,12 +147,12 @@ defaults_write_if_absent() {
 
 # Like defaults_write_if_absent but fetches the value from Bitwarden.
 # Last argument is the Bitwarden item name; its password field is used as the value.
-# Skipped entirely when --no-bitwarden is passed.
+# Skipped unless --auth is passed.
 # Usage: defaults_write_if_absent_authenticated <domain> <key> <type> <bw-item-name>
 defaults_write_if_absent_authenticated() {
   local domain="$1" key="$2" type="$3" bw_item="$4"
 
-  if [ "$NO_BITWARDEN" -eq 1 ]; then
+  if [ "$USE_BITWARDEN" -eq 0 ]; then
     return
   fi
 
@@ -180,11 +180,11 @@ defaults_write_if_absent_authenticated() {
 }
 
 # Unlock Bitwarden vault and store session key in BW_SESSION.
-# Skipped when --no-bitwarden is passed.
+# Skipped unless --auth is passed.
 # Usage: bw_unlock
 bw_unlock() {
-  if [ "$NO_BITWARDEN" -eq 1 ]; then
-    skipped "Bitwarden skipped (--no-bitwarden)"
+  if [ "$USE_BITWARDEN" -eq 0 ]; then
+    skipped "Bitwarden skipped (use --auth to enable)"
     return
   fi
 
