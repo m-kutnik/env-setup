@@ -7,6 +7,11 @@ brew "wget"
 brew "mas" # Mac App Store CLI https://github.com/mas-cli/mas
 brew "bitwarden-cli" # Bitwarden CLI https://github.com/bitwarden/cli
 
+# NTFS support
+brew "gromgit/fuse/ntfs-3g-mac", trusted: true
+cask "macfuse"
+cask "mounty"
+
 # make yubikey work with ssh agent
 brew "yubico-piv-tool"
 brew "libfido2"
