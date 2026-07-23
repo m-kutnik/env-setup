@@ -30,6 +30,7 @@ dotfiles = { default_mode = "symlink" }
 "~/.config/ghostty" = { source = "dotfiles/ghostty/.config/ghostty" }
 "~/.config/launchd-services" = { source = "dotfiles/launchd/.config/launchd-services" }
 "~/.config/mise" = { source = "dotfiles/mise/.config/mise" }
+"~/.omp" = { source = "dotfiles/omp/.omp" }
 "~/.agents" = { source = "dotfiles/pi/.agents" }
 "~/.claude" = { source = "dotfiles/pi/.claude" }
 "~/.pi" = { source = "dotfiles/pi/.pi" }

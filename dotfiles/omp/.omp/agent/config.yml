@@ -1,0 +1,8 @@
+providers:
+  webSearch: auto
+setupVersion: 1
+modelRoles:
+  slow: xiaomi/mimo-v2.5-pro
+  default: xiaomi/mimo-v2.5-pro:high
+  vision: xiaomi/mimo-v2-omni
+  smol: xiaomi/mimo-v2.5

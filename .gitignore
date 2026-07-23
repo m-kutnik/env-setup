@@ -22,3 +22,9 @@ dotfiles/pi/.pi/agent/intercom/*.sock
 
 dotfiles/pi/.pi/pi-acp/
 .pi-subagents
+
+# OMP
+dotfiles/omp/.omp/*
+!dotfiles/omp/.omp/agent
+dotfiles/omp/.omp/agent/*
+!dotfiles/omp/.omp/agent/config.yml
