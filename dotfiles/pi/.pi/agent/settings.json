@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.6",
+  "lastChangelogVersion": "0.81.1",
   "transport": "sse",
   "theme": "tokyo-night",
   "defaultProvider": "xiaomi",
