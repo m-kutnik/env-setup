@@ -1,2 +1,3 @@
 # mas "Amphetamine", id: 937984704
 # for some reason Amphetamine install fails...
+mas "Bitwarden", id: 1352778147

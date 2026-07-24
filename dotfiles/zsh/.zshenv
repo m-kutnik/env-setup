@@ -12,6 +12,10 @@ if [ -n "${ZSH_VERSION-}" ]; then
   #
   # Ensure system PATH is available for non-interactive shells (git hooks, submodules, etc.)
   [[ -x /usr/libexec/path_helper ]] && eval "$(/usr/libexec/path_helper -s)"
+
+  if [[ -S "$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock" ]]; then
+    export SSH_AUTH_SOCK="$HOME/Library/Containers/com.bitwarden.desktop/Data/.bitwarden-ssh-agent.sock"
+  fi
   #
   # Do not change anything else in this file.
 
