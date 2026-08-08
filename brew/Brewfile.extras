@@ -1,3 +1,12 @@
+brew "zoxide" # modern replacement for cd https://github.com/ajeetdsouza/zoxide
+brew "eza" # modern replacement for ls https://github.com/eza-community/eza
+brew "chafa" # images in the terminal https://github.com/hpjansson/chafa
+
+# NTFS support
+brew "gromgit/fuse/ntfs-3g-mac", trusted: true
+cask "macfuse"
+cask "mounty"
+
 cask "zed" # Zed editor https://zed.dev
 cask "ghostty" # Terminal emulator https://ghostty.org/
 cask "macs-fan-control" # Fan control https://crystalidea.com/macs-fan-control
@@ -17,3 +26,7 @@ cask "the-unarchiver" # RAR/7z utility https://theunarchiver.com/
 cask "todoist-app" # Todoist task manager https://todoist.com/
 cask "twingate" # Zero trust VPN https://www.twingate.com/
 cask "yubico-authenticator" # Yubico Authenticator https://www.yubico.com/
+
+# mas "Amphetamine", id: 937984704
+# for some reason Amphetamine install fails...
+mas "Bitwarden", id: 1352778147

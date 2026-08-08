@@ -8,16 +8,43 @@ shfmt = "latest"
 [env]
 _ = { path = "./node_modules/.bin" }
 
-[tasks]
-sync = { description = "Full initialization, runs all required + optional scripts, links dotfiles", usage = """
-flag "-f --force" help="Accept everything, including potentially destructive actions"
-flag "--auth" help="Enables Bitwarden vault unlock (e.g. license import)"
-""", run = "./scripts/bash/install.sh" }
-pi-install-extension-deps = { run = "bun scripts/bun/pi-install-extension-deps.ts", description = "Installs dependencies for Pi extensions" }
-apply-defaults = { run = "./scripts/bash/apply-defaults.sh", description = "Applies app/system default settings" }
-restart-apps = { run = "./scripts/bash/restart-apps.sh", description = "Restart macOS apps after configuration changes" }
-format = { run = "oxfmt && treefmt", description = "Run project-wide formatting", depends = "sync-ignore" }
-sync-ignore = { run = "bun scripts/bun/sync-ignore.ts", hide = true }
+[tasks.setup]
+description = "Full initialization, runs all required + optional scripts, links dotfiles"
+extends = "bash_baseline"
+run = "./scripts/bash/setup.sh"
+
+[tasks."install:homebrew"]
+description = "Installs Homebrew packages"
+extends = "bash_baseline"
+run = ["./scripts/bash/install-homebrew-base.sh", "./scripts/bash/install-homebrew-extras.sh"]
+
+[tasks."install:pi"]
+description = "Installs Pi and Pi extensions"
+extends = "bash_baseline"
+run = [
+  "bun add -g --ignore-scripts @earendil-works/pi-coding-agent",
+  "bun scripts/bun/install-pi-extensions.ts",
+]
+
+[tasks.apply-defaults]
+description = "Applies app/system default settings"
+extends = "bash_baseline"
+run = "./scripts/bash/apply-defaults.sh"
+
+[tasks.restart-apps]
+description = "Restart macOS apps after configuration changes"
+extends = "bash_baseline"
+run = "./scripts/bash/restart-apps.sh"
+
+[tasks.format]
+description = "Run project-wide formatting"
+run = "oxfmt && treefmt"
+depends = ["sync-ignore"]
+
+[tasks.sync-ignore]
+description = "Sync ignore files"
+run = "bun scripts/bun/sync-ignore.ts"
+hide = true
 
 [deps]
 bun = { auto = true }
@@ -25,6 +52,12 @@ git-submodule = { auto = true }
 
 [settings]
 dotfiles = { default_mode = "symlink" }
+
+[task_templates]
+bash_baseline = { usage = """
+flag "-f --force" help="Accept everything, including potentially destructive actions"
+flag "--auth" help="Enables Bitwarden vault unlock (e.g. license import)"
+""" }
 
 [dotfiles]
 "~/.config/ghostty" = { source = "dotfiles/ghostty/.config/ghostty" }

@@ -13,7 +13,7 @@ git clone https://github.com/m-kutnik/env-setup.git && cd env-setup
 and, if you are brave (or stupid) enough to run the full setup, run:
 
 ```bash
-./scripts/bash/install.sh
+./scripts/bash/setup.sh
 ```
 
 This will basically run ~all~ most of the setup scripts in the `scripts/bash` directory, so if you are not me, i recommend checking the source code first. You can find more info about each script in the [Bash Scripts](#bash-scripts) section.
@@ -21,13 +21,7 @@ This will basically run ~all~ most of the setup scripts in the `scripts/bash` di
 The basic setup is done, now just run:
 
 ```bash
-mise run sync
-```
-
-To install pi extensions deps, run:
-
-```bash
-mise run pi-install-extension-deps
+mise run setup
 ```
 
 ## Mise
@@ -42,16 +36,15 @@ Path: `./scripts/bash`
 
 | Script                              | Description                                        |
 | ----------------------------------- | -------------------------------------------------- |
-| `install.sh`                        | Full setup, calls other scripts                    |
-| `xcode-install.sh`                  | Installs Xcode                                     |
-| `homebrew-setup.sh`                 | Sets up multi-user homebrew                        |
-| `homebrew-install-base.sh`          | Installs baseline homebrew packages                |
-| `homebrew-install-extras.sh`        | Installs homebrew extras                           |
+| `setup.sh`                          | Full setup, calls other scripts                    |
+| `setup-homebrew.sh`                 | Sets up multi-user homebrew                        |
+| `install-xcode.sh`                  | Installs Xcode                                     |
+| `install-homebrew-base.sh`          | Installs baseline homebrew packages                |
+| `install-homebrew-extras.sh`        | Installs homebrew extras                           |
 | `add-current-user-to-brew-group.sh` | Adds current user to brew group                    |
-| `repo-deps.sh`                      | Installs repository dependencies                   |
 | `uninstall.sh`                      | Uninstalls homebrew, removes brew user/group, etc. |
 
-#### `install.sh` flags
+#### Bash script flags
 
 | Flag             | Description                                         |
 | ---------------- | --------------------------------------------------- |
@@ -74,7 +67,7 @@ Logs are stored in `/var/log/env-setup`
 
 ### Setup
 
-Services are automatically installed during main `install.sh`/`mise run sync` init. Some services like `env-setup.timemachine-ignore-sync` require Full Disk Access (FDA). Granting FDA to `/usr/local/bin/env-setup/fda-launcher` in System Settings → Privacy & Security → Full Disk Access is required.
+Services are automatically installed during main `setup.sh`/`mise run setup` init. Some services like `env-setup.timemachine-ignore-sync` require Full Disk Access (FDA). Granting FDA to `/usr/local/bin/env-setup/fda-launcher` in System Settings → Privacy & Security → Full Disk Access is required.
 
 ### Why a C binary (fda-launcher)?
 
