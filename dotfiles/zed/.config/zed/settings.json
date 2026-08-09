@@ -71,6 +71,7 @@
   "use_system_window_tabs": false,
   "bottom_dock_layout": "contained",
   "preview_tabs": {
+    "enable_preview_from_file_finder": true,
     "enabled": true
   },
   "tabs": {
