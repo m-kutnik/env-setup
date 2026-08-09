@@ -26,6 +26,7 @@ cask "the-unarchiver" # RAR/7z utility https://theunarchiver.com/
 cask "todoist-app" # Todoist task manager https://todoist.com/
 cask "yubico-authenticator" # Yubico Authenticator https://www.yubico.com/
 cask "tailscale-app" # Tailscale VPN https://tailscale.com/
+cask "macshot" # screenshot utility https://github.com/sw33tLie/macshot
 
 # mas "Amphetamine", id: 937984704
 # for some reason Amphetamine install fails...

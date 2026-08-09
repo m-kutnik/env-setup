@@ -122,8 +122,8 @@ unset APP
 Rules for the script:
 
 - Use `defaults_write_if_absent` for every key (not raw `defaults write`)
-- Use the correct type flag: `-int`, `-float`, `-string`, `-bool`, `-array`
-- For boolean values, use `-int 1` / `-int 0` (matching the existing pattern)
+- **⚠️ NEVER use `-bool true`/`-bool false`.** Boolean values MUST use `-int 1` / `-int 0` (matching the existing script pattern)
+- Use the correct type flag: `-int`, `-float`, `-string`, `-array` (but not `-bool`)
 - Mirror the user's current values as defaults
 - Add blank lines between category sections
 - Add a `# <Category>` comment before each group
