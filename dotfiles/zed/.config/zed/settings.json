@@ -39,6 +39,7 @@
     "button": false
   },
   "minimap": {
+    "thumb_border": "none",
     "show": "always"
   },
   "scrollbar": {
