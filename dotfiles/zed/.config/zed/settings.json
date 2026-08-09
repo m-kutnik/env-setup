@@ -176,6 +176,14 @@
       }
     }
   },
+  "inlay_hints": {
+    "enabled": false,
+    "toggle_on_modifiers_press": {
+      "control": true,
+      "alt": true,
+      "platform": true
+    }
+  },
   "languages": {
     "CSS": {
       "format_on_save": "on",
