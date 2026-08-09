@@ -59,6 +59,8 @@ defaults_write_if_absent NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -int
 defaults_write_if_absent NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -int 0
 defaults_write_if_absent NSGlobalDomain com.apple.mouse.linear -int 1
 defaults_write_if_absent NSGlobalDomain AppleSpacesSwitchOnActivate -int 1
+defaults_write_if_absent NSGlobalDomain AppleMiniaturizeOnDoubleClick -int 1
+defaults_write_if_absent NSGlobalDomain AppleActionOnDoubleClick -string Minimize
 
 # Trackpad
 log "Setting Trackpad defaults"
