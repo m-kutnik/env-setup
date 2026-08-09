@@ -28,7 +28,8 @@
     "show": "always"
   },
   "scrollbar": {
-    "show": "never"
+    "git_diff": true,
+    "show": "auto"
   },
   "auto_install_extensions": {
     "html": true,
