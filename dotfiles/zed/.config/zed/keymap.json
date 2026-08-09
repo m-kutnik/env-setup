@@ -35,5 +35,17 @@
     "unbind": {
       "ctrl-shift-g": "git_panel::ToggleFocus"
     }
+  },
+  {
+    "context": "RecentProjects || RecentProjects > Picker > Editor",
+    "unbind": {
+      "cmd-shift-a": "workspace::AddFolderToProject"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-a": "agent::ToggleFocus"
+    }
   }
 ]
