@@ -60,7 +60,7 @@
     "enabled": true
   },
   "tabs": {
-    "file_icons": false,
+    "file_icons": true,
     "git_status": true
   },
   "tab_bar": {
@@ -82,6 +82,8 @@
     "button": false
   },
   "project_panel": {
+    "folder_icons": true,
+    "file_icons": true,
     "dock": "right",
     "hide_root": false,
     "indent_guides": {
