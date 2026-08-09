@@ -7,6 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "pi-acp": {
+      "type": "registry"
+    },
+    "omp": {
+      "type": "custom",
+      "command": "omp",
+      "args": ["acp"]
+    }
+  },
   "colorize_brackets": true,
   "lsp_document_colors": "inlay",
   "indent_guides": {

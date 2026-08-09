@@ -13,6 +13,7 @@ export default defineConfig({
     "!dotfiles/omp/.omp/agent",
     "dotfiles/omp/.omp/agent/*",
     "!dotfiles/omp/.omp/agent/config.yml",
+    "!dotfiles/omp/.omp/agent/mcp.json",
     "dotfiles/pi/.pi/agent/auth.json",
     "dotfiles/pi/.pi/agent/bin/",
     "dotfiles/pi/.pi/agent/cache/",
