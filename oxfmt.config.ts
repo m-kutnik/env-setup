@@ -9,6 +9,7 @@ export default defineConfig({
     ".pi-subagents",
     "*.lock",
     "*.lockb",
+    "dotfiles/karabiner/.config/karabiner/automatic_backups",
     "dotfiles/omp/.omp/*",
     "!dotfiles/omp/.omp/agent",
     "dotfiles/omp/.omp/agent/*",

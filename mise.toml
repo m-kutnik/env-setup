@@ -62,7 +62,7 @@ flag "--auth" help="Enables Bitwarden vault unlock (e.g. license import)"
 [dotfiles]
 "~/.config/ghostty" = { source = "dotfiles/ghostty/.config/ghostty" }
 "~/.local/bin/brew" = { source = "dotfiles/homebrew/.local/bin/brew" }
-"~/.config/launchd-services" = { source = "dotfiles/launchd/.config/launchd-services" }
+"~/.config/karabiner" = { source = "dotfiles/karabiner/.config/karabiner" }
 "~/.config/mise" = { source = "dotfiles/mise/.config/mise" }
 "~/.omp" = { source = "dotfiles/omp/.omp" }
 "~/.agents" = { source = "dotfiles/pi/.agents" }
@@ -73,7 +73,3 @@ flag "--auth" help="Enables Bitwarden vault unlock (e.g. license import)"
 "~/.p10k.zsh" = { source = "dotfiles/zsh/.p10k.zsh" }
 "~/.zshenv" = { source = "dotfiles/zsh/.zshenv" }
 "~/.zshrc" = { source = "dotfiles/zsh/.zshrc" }
-
-[bootstrap.macos.launchd.agents.keyboard-remap]
-program = "~/.config/launchd-services/keyboard-remap"
-run_at_load = true
