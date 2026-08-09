@@ -132,7 +132,7 @@ defaults_write_if_absent() {
   local desired="$*"
 
   if [ "$FORCE" -eq 1 ]; then
-    run defaults write "$domain" "$key" "$type" $desired
+    run defaults write "$domain" "$key" "$type" "$desired"
     return
   fi
 
@@ -141,7 +141,34 @@ defaults_write_if_absent() {
   if [ -n "$current" ] && [ "$current" != "$compare" ]; then
     warn "$key is different (current: $current, desired: $desired)"
   elif [ -z "$current" ]; then
-    run defaults write "$domain" "$key" "$type" $desired
+    run defaults write "$domain" "$key" "$type" "$desired"
+  fi
+}
+
+# Like defaults_write_if_absent but for dictionary sub-keys.
+# Usage: defaults_write_if_absent_dict <domain> <dict-key> <subkey> <value>
+# Example: defaults_write_if_absent_dict com.apple.symbolichotkeys AppleSymbolicHotKeys 30 '{ enabled = 0; }'
+defaults_write_if_absent_dict() {
+  local domain="$1" dict_key="$2" subkey="$3" desired="$4"
+  local plist="$HOME/Library/Preferences/$domain.plist"
+
+  if [ "$FORCE" -eq 1 ]; then
+    run defaults write "$domain" "$dict_key" -dict-add "$subkey" "$desired"
+    return
+  fi
+
+  local current
+  current=$(/usr/libexec/PlistBuddy -c "Print :$dict_key:$subkey" "$plist" 2>/dev/null || true)
+
+  if [ -n "$current" ]; then
+    local current_norm desired_norm
+    current_norm=$(echo "$current" | tr -d ' \n\t;{}' | sed 's/^Dict//')
+    desired_norm=$(echo "$desired" | tr -d ' \n\t;{}')
+    if [ "$current_norm" != "$desired_norm" ]; then
+      warn "$dict_key.$subkey is different (current: $current, desired: $desired)"
+    fi
+  else
+    run defaults write "$domain" "$dict_key" -dict-add "$subkey" "$desired"
   fi
 }
 
