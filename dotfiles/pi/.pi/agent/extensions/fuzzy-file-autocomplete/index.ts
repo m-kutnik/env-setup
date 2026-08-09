@@ -227,54 +227,52 @@ export default function (pi: ExtensionAPI): void {
       return cachePromise;
     };
 
-    ctx.ui.addAutocompleteProvider(
-      (current: AutocompleteProvider): AutocompleteProvider => ({
-        async getSuggestions(
-          lines,
-          cursorLine,
-          cursorCol,
-          options,
-        ): Promise<AutocompleteSuggestions | null> {
-          const currentLine = lines[cursorLine] ?? "";
-          const textBeforeCursor = currentLine.slice(0, cursorCol);
+    ctx.ui.addAutocompleteProvider((current: AutocompleteProvider): AutocompleteProvider => ({
+      async getSuggestions(
+        lines,
+        cursorLine,
+        cursorCol,
+        options,
+      ): Promise<AutocompleteSuggestions | null> {
+        const currentLine = lines[cursorLine] ?? "";
+        const textBeforeCursor = currentLine.slice(0, cursorCol);
 
-          const atQuery = extractAtToken(textBeforeCursor);
-          if (atQuery === null) {
-            // Not an @ completion — delegate to built-in
-            return current.getSuggestions(lines, cursorLine, cursorCol, options);
-          }
+        const atQuery = extractAtToken(textBeforeCursor);
+        if (atQuery === null) {
+          // Not an @ completion — delegate to built-in
+          return current.getSuggestions(lines, cursorLine, cursorCol, options);
+        }
 
-          // If the query contains a "/" it's a scoped path — let the built-in handle it
-          // (the built-in does directory-level completion well)
-          if (atQuery.includes("/")) {
-            return current.getSuggestions(lines, cursorLine, cursorCol, options);
-          }
+        // If the query contains a "/" it's a scoped path — let the built-in handle it
+        // (the built-in does directory-level completion well)
+        if (atQuery.includes("/")) {
+          return current.getSuggestions(lines, cursorLine, cursorCol, options);
+        }
 
-          const files = await getFiles(options.signal);
-          if (options.signal.aborted || files.length === 0) {
-            return current.getSuggestions(lines, cursorLine, cursorCol, options);
-          }
+        const files = await getFiles(options.signal);
+        if (options.signal.aborted || files.length === 0) {
+          return current.getSuggestions(lines, cursorLine, cursorCol, options);
+        }
 
-          const suggestions = buildSuggestions(files, atQuery);
-          if (suggestions.length === 0) {
-            // Fall back to built-in in case our approach missed something
-            return current.getSuggestions(lines, cursorLine, cursorCol, options);
-          }
+        const suggestions = buildSuggestions(files, atQuery);
+        if (suggestions.length === 0) {
+          // Fall back to built-in in case our approach missed something
+          return current.getSuggestions(lines, cursorLine, cursorCol, options);
+        }
 
-          return {
-            items: suggestions,
-            prefix: `@${atQuery}`,
-          };
-        },
+        return {
+          items: suggestions,
+          prefix: `@${atQuery}`,
+        };
+      },
 
-        applyCompletion(lines, cursorLine, cursorCol, item, prefix) {
-          return current.applyCompletion(lines, cursorLine, cursorCol, item, prefix);
-        },
+      applyCompletion(lines, cursorLine, cursorCol, item, prefix) {
+        return current.applyCompletion(lines, cursorLine, cursorCol, item, prefix);
+      },
 
-        shouldTriggerFileCompletion(lines, cursorLine, cursorCol) {
-          return current.shouldTriggerFileCompletion?.(lines, cursorLine, cursorCol) ?? true;
-        },
-      }),
-    );
+      shouldTriggerFileCompletion(lines, cursorLine, cursorCol) {
+        return current.shouldTriggerFileCompletion?.(lines, cursorLine, cursorCol) ?? true;
+      },
+    }));
   });
 }

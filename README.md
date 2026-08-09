@@ -16,7 +16,7 @@ and, if you are brave (or stupid) enough to run the full setup, run:
 ./scripts/bash/setup.sh
 ```
 
-This will basically run ~all~ most of the setup scripts in the `scripts/bash` directory, so if you are not me, i recommend checking the source code first. You can find more info about each script in the [Bash Scripts](#bash-scripts) section.
+This will basically run ~~all~~ most of the setup scripts in the `scripts/bash` directory, so if you are not me, i recommend checking the source code first. You can find more info about each script in the [Bash Scripts](#bash-scripts) section.
 
 The basic setup is done, now just run:
 
