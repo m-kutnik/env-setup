@@ -6,50 +6,47 @@ source "$SCRIPT_DIR/../_utils/helpers.sh"
 
 log "Setting MacOS defaults"
 
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+run osascript -e 'tell application "System Preferences" to quit'
+
 # Dock
-log "Setting Dock defaults"
-APP="com.apple.dock"
-defaults_write_if_absent "$APP" autohide -int 1
-defaults_write_if_absent "$APP" show-recents -int 0
-defaults_write_if_absent "$APP" tilesize -int 40
-defaults_write_if_absent "$APP" mru-spaces -int 0
-defaults_write_if_absent "$APP" show-process-indicators -int 0
-defaults_write_if_absent "$APP" static-only -int 1
-defaults_write_if_absent "$APP" launchanim -int 0
-defaults_write_if_absent "$APP" wvous-br-corner -int 1
-defaults_write_if_absent "$APP" wvous-tl-corner -int 1
-defaults_write_if_absent "$APP" wvous-tr-corner -int 1
-defaults_write_if_absent "$APP" wvous-bl-corner -int 1
-unset APP
+defaults_write_if_absent com.apple.dock autohide -int 1
+defaults_write_if_absent com.apple.dock show-recents -int 0
+defaults_write_if_absent com.apple.dock tilesize -int 40
+defaults_write_if_absent com.apple.dock mru-spaces -int 0
+defaults_write_if_absent com.apple.dock show-process-indicators -int 0
+defaults_write_if_absent com.apple.dock static-only -int 1
+defaults_write_if_absent com.apple.dock launchanim -int 0
+defaults_write_if_absent com.apple.dock wvous-br-corner -int 1
+defaults_write_if_absent com.apple.dock wvous-tl-corner -int 1
+defaults_write_if_absent com.apple.dock wvous-tr-corner -int 1
+defaults_write_if_absent com.apple.dock wvous-bl-corner -int 1
 
 # Finder
-log "Setting Finder defaults"
-APP="com.apple.finder"
-defaults_write_if_absent "$APP" AppleShowAllFiles -int 1
-defaults_write_if_absent "$APP" ShowStatusBar -int 0
-defaults_write_if_absent "$APP" ShowSidebar -int 1
-defaults_write_if_absent "$APP" ShowPathbar -int 1
-defaults_write_if_absent "$APP" ShowExtensionChangeWarning -int 0
-defaults_write_if_absent "$APP" AppleShowAllExtensions -int 1
-defaults_write_if_absent "$APP" CreateDesktop -int 0
-defaults_write_if_absent "$APP" FXDefaultSearchScope -string "SCcf"
-defaults_write_if_absent "$APP" NewWindowTarget -string "Home"
-defaults_write_if_absent "$APP" ShowExternalHardDrivesOnDesktop -int 0
-defaults_write_if_absent "$APP" ShowHardDrivesOnDesktop -int 0
-defaults_write_if_absent "$APP" ShowMountedServersOnDesktop -int 0
-defaults_write_if_absent "$APP" ShowRemovableMediaOnDesktop -int 0
-defaults_write_if_absent "$APP" _FXShowPosixPathInTitle -int 1
-defaults_write_if_absent "$APP" _FXSortFoldersFirst -int 1
-defaults_write_if_absent "$APP" SidebarWidth -int 159
-defaults_write_if_absent "$APP" SidebarWidth2 -int 159
-unset APP
+defaults_write_if_absent com.apple.finder AppleShowAllFiles -int 1
+defaults_write_if_absent com.apple.finder ShowStatusBar -int 0
+defaults_write_if_absent com.apple.finder ShowSidebar -int 1
+defaults_write_if_absent com.apple.finder ShowPathbar -int 1
+defaults_write_if_absent com.apple.finder ShowExtensionChangeWarning -int 0
+defaults_write_if_absent com.apple.finder AppleShowAllExtensions -int 1
+defaults_write_if_absent com.apple.finder CreateDesktop -int 0
+defaults_write_if_absent com.apple.finder FXDefaultSearchScope -string "SCcf"
+defaults_write_if_absent com.apple.finder NewWindowTarget -string "Home"
+defaults_write_if_absent com.apple.finder ShowExternalHardDrivesOnDesktop -int 0
+defaults_write_if_absent com.apple.finder ShowHardDrivesOnDesktop -int 0
+defaults_write_if_absent com.apple.finder ShowMountedServersOnDesktop -int 0
+defaults_write_if_absent com.apple.finder ShowRemovableMediaOnDesktop -int 0
+defaults_write_if_absent com.apple.finder _FXShowPosixPathInTitle -int 1
+defaults_write_if_absent com.apple.finder _FXSortFoldersFirst -int 1
+defaults_write_if_absent com.apple.finder SidebarWidth -int 159
+defaults_write_if_absent com.apple.finder SidebarWidth2 -int 159
+defaults_write_if_absent com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Keyboard
-log "Setting keyboard defaults"
 defaults_write_if_absent NSGlobalDomain com.apple.keyboard.fnState -int 1
 
 # NSGlobalDomain
-log "Setting NSGlobalDomain defaults"
 defaults_write_if_absent NSGlobalDomain com.apple.sound.beep.feedback -int 1
 defaults_write_if_absent NSGlobalDomain AppleInterfaceStyle -string "Dark"
 defaults_write_if_absent NSGlobalDomain NSAutomaticCapitalizationEnabled -int 0
@@ -63,36 +60,42 @@ defaults_write_if_absent NSGlobalDomain AppleMiniaturizeOnDoubleClick -int 1
 defaults_write_if_absent NSGlobalDomain AppleActionOnDoubleClick -string Minimize
 
 # Trackpad
-log "Setting Trackpad defaults"
 defaults_write_if_absent com.apple.AppleMultitouchTrackpad TrackpadRotate -int 1
 defaults_write_if_absent com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRotate -int 1
 
 # LaunchServices
-log "Setting LaunchServices defaults"
 defaults_write_if_absent com.apple.LaunchServices LSQuarantine -int 0
 
 # Control Center
-log "Setting Control Center defaults"
 defaults_write_if_absent com.apple.controlcenter BatteryShowPercentage -int 0
 defaults_write_if_absent com.apple.controlcenter NowPlaying -int 0
 
 # Login Window
-log "Setting Login Window defaults"
 defaults_write_if_absent com.apple.loginwindow GuestEnabled -int 0
 defaults_write_if_absent com.apple.loginwindow DisableConsoleAccess -int 1
 
 # Fn key behavior
-log "Setting Fn key defaults"
 defaults_write_if_absent com.apple.hitoolbox AppleFnUsageType -string "Do Nothing"
 
 # Screen Capture
-log "Setting Screen Capture defaults"
 defaults_write_if_absent com.apple.screencapture include-date -int 0
 defaults_write_if_absent com.apple.screencapture save-selections -int 0
 defaults_write_if_absent com.apple.screencapture target -string "clipboard"
 
 # Startup chime off
-log "Setting Accessibility defaults"
 defaults_write_if_absent com.apple.Accessibility StartupSoundEnabled -int 0
+
+# Require password immediately after sleep or screen saver begins
+defaults_write_if_absent com.apple.screensaver askForPassword -int 1
+defaults_write_if_absent com.apple.screensaver askForPasswordDelay -int 0
+
+# Avoid creating .DS_Store files on network or USB volumes
+defaults_write_if_absent com.apple.desktopservices DSDontWriteNetworkStores -int 1
+defaults_write_if_absent com.apple.desktopservices DSDontWriteUSBStores -int 1
+
+# Enable snap-to-grid for icons on the desktop and in other icon views
+run /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+run /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+run /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 
 success "System defaults set"
