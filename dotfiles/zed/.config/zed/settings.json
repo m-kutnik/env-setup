@@ -26,7 +26,7 @@
     "coloring": "indent_aware"
   },
   "agent": {
-    "dock": "left",
+    "dock": "right",
     "favorite_models": [],
     "model_parameters": []
   },
