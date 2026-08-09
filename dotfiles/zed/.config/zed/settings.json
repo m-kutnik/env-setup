@@ -122,9 +122,6 @@
   "tab_size": 2,
   "terminal": {
     "font_size": 12.0,
-    "toolbar": {
-      "breadcrumbs": true
-    },
     "shell": {
       "program": "zsh"
     },
