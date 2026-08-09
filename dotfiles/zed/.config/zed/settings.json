@@ -94,7 +94,7 @@
       "show": "never"
     },
     "bold_folder_labels": false,
-    "indent_size": 20.0,
+    "indent_size": 12.0,
     "git_status": true,
     "button": true
   },
