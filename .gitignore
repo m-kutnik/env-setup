@@ -32,3 +32,4 @@ dotfiles/omp/.omp/agent/*
 
 # Karabiner
 dotfiles/karabiner/.config/karabiner/automatic_backups
+dotfiles/karabiner/.config/karabiner/assets
