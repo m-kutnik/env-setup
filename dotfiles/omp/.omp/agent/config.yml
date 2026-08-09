@@ -1,8 +1,51 @@
-providers:
-  webSearch: auto
+providers: {}
 setupVersion: 1
 modelRoles:
   slow: xiaomi/mimo-v2.5-pro
   default: xiaomi/mimo-v2.5-pro:high
   vision: xiaomi/mimo-v2-omni
   smol: xiaomi/mimo-v2.5
+theme:
+  dark: dark-tokyo-night
+  light: dark-tokyo-night
+symbolPreset: nerd
+statusLine:
+  preset: default
+  separator: powerline-thin
+  sessionAccent: true
+  transparent: false
+  compactThinkingLevel: false
+  showHookStatus: true
+terminal:
+  showProgress: false
+tui:
+  tight: false
+display:
+  shimmer: classic
+personality: default
+prewalk:
+  enabled: true
+loop:
+  mode: prompt
+doubleEscapeAction: tree
+treeFilterMode: default
+startup:
+  changelogMode: summary
+power:
+  sleepPrevention: system
+compaction:
+  strategy: snapcompact
+memory:
+  backend: mnemopi
+autolearn:
+  enabled: true
+edit:
+  mode: hashline
+astGrep:
+  enabled: true
+task:
+  eager: default
+  isolation:
+    mode: auto
+secrets:
+  enabled: true
