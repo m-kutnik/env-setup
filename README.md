@@ -18,7 +18,11 @@ and, if you are brave (or stupid) enough to run the full setup, run:
 
 This will basically run ~~all~~ most of the setup scripts in the `scripts/bash` directory, so if you are not me, i recommend checking the source code first. You can find more info about each script in the [Bash Scripts](#bash-scripts) section.
 
-The basic setup is done, now just run:
+The setup script is idempotent - running it multiple times should not cause any issues so if you are lazy like me, you can just run it whenever there are changes to the config.
+
+Some apps may require additional configuration after the setup script runs - but it should be enough to run them once. Check the sections below
+
+To run it again, simply run:
 
 ```bash
 mise run setup
@@ -86,8 +90,20 @@ sudo launchctl print system 2>/dev/null | grep -oE 'env-setup\.[[:alnum:]_.-]+' 
 sudo launchctl print system/env-setup.timemachine-ignore-sync
 ```
 
-## Known issues
+## Apps
 
-### `mise ERROR `launchctl bootout [...]` failed: Boot-out failed: 5: Input/output error`
+This is not a full list, but things listed here need to be configured to work properly.
 
-Mise may fail with this error on macOS. You need to run `bootstrap` first, so just replace `bootout` -> `bootstrap`, run the command, and rerun the install script afterward.
+### Tailscale
+
+Authenticate with Tailscale (needs to run once, auth in browser):
+
+```bash
+tailscale up
+```
+
+Check status:
+
+```bash
+tailscale status
+```

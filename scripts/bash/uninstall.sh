@@ -10,6 +10,16 @@ else
   HOMEBREW_PREFIX=$([[ $(uname -m) == "arm64" ]] && echo /opt/homebrew || echo /usr/local)
 fi
 
+if [ -f /Library/LaunchDaemons/com.tailscale.tailscaled.plist ]; then
+  if confirm "Uninstall Tailscale system daemon?"; then
+    log "Uninstalling Tailscale system daemon..."
+    run sudo tailscaled uninstall-system-daemon
+    success "Tailscale system daemon uninstalled."
+  else
+    skipped "Skipping Tailscale removal."
+  fi
+fi
+
 if command -v mise &>/dev/null; then
   if confirm "Uninstall mise?"; then
     if confirm "Also remove global config directory (~/.config/mise)?"; then

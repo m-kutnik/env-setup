@@ -31,6 +31,14 @@ run sudo cp "$NEWSYSLOG_SRC" "$NEWSYSLOG_CONF"
 run sudo chmod 644 "$NEWSYSLOG_CONF"
 log-secondary "Installed $NEWSYSLOG_CONF"
 
+# Install Tailscale daemon
+if [ -f /Library/LaunchDaemons/com.tailscale.tailscaled.plist ]; then
+  log-secondary "Tailscale daemon already installed, skipping"
+else
+  log "Installing Tailscale daemon..."
+  run sudo tailscaled install-system-daemon
+fi
+
 # Build fda-launcher
 "$SCRIPT_DIR/build-fda-launcher.sh"
 
