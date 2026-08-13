@@ -29,6 +29,7 @@ cask "todoist-app" # Todoist task manager https://todoist.com/
 cask "yubico-authenticator" # Yubico Authenticator https://www.yubico.com/
 cask "macshot" # screenshot utility https://github.com/sw33tLie/macshot
 cask "karabiner-elements" # keyboard remapping https://karabiner-elements.pqrs.org/
+cask "adguard" # Adblocker https://adguard.com/
 
 # mas "Amphetamine", id: 937984704
 # for some reason Amphetamine install fails...
