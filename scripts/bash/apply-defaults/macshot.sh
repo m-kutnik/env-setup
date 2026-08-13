@@ -37,6 +37,8 @@ defaults_write_if_absent "$APP" hotkeyModifiers -int 768
 defaults_write_if_absent "$APP" hotkeyDisabled_7 -int 1
 # Disable Capture Screen (default was ⌘⇧F)
 defaults_write_if_absent "$APP" hotkeyDisabled_2 -int 1
+# Disable Record Area
+defaults_write_if_absent "$APP" hotkeyDisabled_3 -int 1
 
 # Appearance
 defaults_write_if_absent "$APP" hideMenuBarIcon -int 1
