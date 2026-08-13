@@ -4,3 +4,7 @@ minimum_release_age = "7d"
 
 [tools]
 bun = "latest"
+shfmt = "latest"
+bitwarden = "latest"
+zoxide = "latest"
+eza = "latest"

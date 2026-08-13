@@ -16,7 +16,10 @@ run = "./scripts/bash/setup.sh"
 [tasks."install:homebrew"]
 description = "Installs Homebrew packages"
 extends = "bash_baseline"
-run = ["./scripts/bash/install-homebrew-base.sh", "./scripts/bash/install-homebrew-extras.sh"]
+run = [
+  "./scripts/bash/darwin/install-homebrew-base.sh",
+  "./scripts/bash/darwin/install-homebrew-extras.sh",
+]
 
 [tasks."install:pi"]
 description = "Installs Pi and Pi extensions"
@@ -29,12 +32,12 @@ run = [
 [tasks.apply-defaults]
 description = "Applies app/system default settings"
 extends = "bash_baseline"
-run = "./scripts/bash/apply-defaults.sh"
+run = "./scripts/bash/darwin/apply-defaults.sh"
 
 [tasks.restart-apps]
 description = "Restart macOS apps after configuration changes"
 extends = "bash_baseline"
-run = "./scripts/bash/restart-apps.sh"
+run = "./scripts/bash/darwin/restart-apps.sh"
 
 [tasks.format]
 description = "Run project-wide formatting"
@@ -61,7 +64,6 @@ flag "--auth" help="Enables Bitwarden vault unlock (e.g. license import)"
 
 [dotfiles]
 "~/.config/ghostty" = { source = "dotfiles/ghostty/.config/ghostty" }
-"~/.local/bin/brew" = { source = "dotfiles/homebrew/.local/bin/brew" }
 "~/.config/karabiner" = { source = "dotfiles/karabiner/.config/karabiner" }
 "~/.config/mise" = { source = "dotfiles/mise/.config/mise" }
 "~/.omp" = { source = "dotfiles/omp/.omp" }

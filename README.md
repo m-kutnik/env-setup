@@ -18,6 +18,8 @@ and, if you are brave (or stupid) enough to run the full setup, run:
 
 This will basically run ~~all~~ most of the setup scripts in the `scripts/bash` directory, so if you are not me, i recommend checking the source code first. You can find more info about each script in the [Bash Scripts](#bash-scripts) section.
 
+Linux setup currently supports Debian/Ubuntu-based distributions with `apt-get`, including WSL.
+
 The setup script is idempotent - running it multiple times should not cause any issues so if you are lazy like me, you can just run it whenever there are changes to the config.
 
 Some apps may require additional configuration after the setup script runs - but it should be enough to run them once. Check the sections below
@@ -38,15 +40,20 @@ Most of the stuff is directly configured by mise or by it calling the other scri
 
 Path: `./scripts/bash`
 
-| Script                              | Description                                        |
-| ----------------------------------- | -------------------------------------------------- |
-| `setup.sh`                          | Full setup, calls other scripts                    |
-| `setup-homebrew.sh`                 | Sets up multi-user homebrew                        |
-| `install-xcode.sh`                  | Installs Xcode                                     |
-| `install-homebrew-base.sh`          | Installs baseline homebrew packages                |
-| `install-homebrew-extras.sh`        | Installs homebrew extras                           |
-| `add-current-user-to-brew-group.sh` | Adds current user to brew group                    |
-| `uninstall.sh`                      | Uninstalls homebrew, removes brew user/group, etc. |
+| Script                                     | Description                         |
+| ------------------------------------------ | ----------------------------------- |
+| `setup.sh`                                 | Full setup, calls other scripts     |
+| `uninstall.sh`                             | Dispatches to platform uninstall    |
+| `shared/setup-mise.sh`                     | Symlinks mise config, bootstrap     |
+| `shared/uninstall-mise.sh`                 | Removes mise                        |
+| `linux/bootstrap.sh`                       | apt + zsh + mise                    |
+| `linux/uninstall.sh`                       | Linux uninstall                     |
+| `darwin/setup-homebrew.sh`                 | Sets up multi-user homebrew         |
+| `darwin/install-xcode.sh`                  | Installs Xcode                      |
+| `darwin/install-homebrew-base.sh`          | Installs baseline homebrew packages |
+| `darwin/install-homebrew-extras.sh`        | Installs homebrew extras            |
+| `darwin/add-current-user-to-brew-group.sh` | Adds current user to brew group     |
+| `darwin/uninstall.sh`                      | Uninstalls homebrew, launchd, etc.  |
 
 #### Bash script flags
 

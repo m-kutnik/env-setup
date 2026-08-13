@@ -1,6 +1,10 @@
 zstyle ':z4h:' auto-update 'ask'
 zstyle ':z4h:' auto-update-days '28'
-zstyle ':z4h:bindkey' keyboard 'mac'
+if [[ "$(uname)" == Darwin ]]; then
+  zstyle ':z4h:bindkey' keyboard 'mac'
+else
+  zstyle ':z4h:bindkey' keyboard 'pc'
+fi
 
 # zstyle ':z4h:' start-tmux command tmux -u new -A -D -t z4h
 zstyle ':z4h:' start-tmux no

@@ -2,11 +2,13 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
-source "$SCRIPT_DIR/_utils/helpers.sh"
+source "$SCRIPT_DIR/../_utils/helpers.sh"
 MISE_CONFIG_SRC="$REPO_ROOT/dotfiles/mise/.config/mise"
 MISE_CONFIG_DST="$HOME/.config/mise"
 
 log "Running mise bootstrap..."
+
+run mkdir -p "$(dirname "$MISE_CONFIG_DST")"
 
 if [ -e "$MISE_CONFIG_DST" ] || [ -L "$MISE_CONFIG_DST" ]; then
   if ! [ -L "$MISE_CONFIG_DST" ] || [ "$(readlink "$MISE_CONFIG_DST")" != "$MISE_CONFIG_SRC" ]; then

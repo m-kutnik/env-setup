@@ -1,5 +1,3 @@
-brew "zoxide" # modern replacement for cd https://github.com/ajeetdsouza/zoxide
-brew "eza" # modern replacement for ls https://github.com/eza-community/eza
 brew "chafa" # images in the terminal https://github.com/hpjansson/chafa
 brew "taproom" # TUI for Homebrew https://github.com/hzqtc/taproom
 brew "tailscale" # Tailscaled VPN client https://tailscale.com/

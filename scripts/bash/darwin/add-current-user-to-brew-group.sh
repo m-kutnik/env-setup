@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
-source "$SCRIPT_DIR/_utils/helpers.sh"
+source "$SCRIPT_DIR/../_utils/helpers.sh"
 
 if ! dscl . -read "/Groups/$BREW_GROUP" GroupMembership 2>/dev/null | grep -qw "$(whoami)"; then
   log "Adding $(whoami) to $BREW_GROUP group..."

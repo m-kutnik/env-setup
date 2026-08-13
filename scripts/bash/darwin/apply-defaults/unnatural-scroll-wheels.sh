@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
-source "$SCRIPT_DIR/../_utils/helpers.sh"
+source "$SCRIPT_DIR/../../_utils/helpers.sh"
 
 log "Setting UnnaturalScrollWheels defaults"
 APP="com.theron.UnnaturalScrollWheels"

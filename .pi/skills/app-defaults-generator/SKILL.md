@@ -13,7 +13,7 @@ allowed-tools: bash read write edit grep find ls
 # App Defaults Generator
 
 Analyze a macOS application's preferences and generate a configuration shell script
-that follows the project's existing `scripts/bash/apply-defaults/` pattern.
+that follows the project's existing `scripts/bash/darwin/apply-defaults/` pattern.
 
 ## Workflow
 
@@ -96,7 +96,7 @@ as a guide if visible. Common groupings:
 
 ### 5. Generate the script
 
-Follow the exact pattern from existing scripts in `scripts/bash/apply-defaults/`.
+Follow the exact pattern from existing scripts in `scripts/bash/darwin/apply-defaults/`.
 Read one of the existing scripts for reference — `macs-fan-control.sh` or `aldente-pro.sh`.
 
 The template:
@@ -106,7 +106,7 @@ The template:
 set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
-source "$SCRIPT_DIR/../_utils/helpers.sh"
+source "$SCRIPT_DIR/../../_utils/helpers.sh"
 
 log "Setting <AppName> defaults"
 APP="<bundle-id>"
@@ -143,8 +143,8 @@ And any observations:
 
 ## Output location
 
-Save the script to `scripts/bash/apply-defaults/<app-name-kebab-case>.sh`
+Save the script to `scripts/bash/darwin/apply-defaults/<app-name-kebab-case>.sh`
 
 If the user hasn't specified an output location, default to the project's
-`scripts/bash/apply-defaults/` directory since that's where the existing
+`scripts/bash/darwin/apply-defaults/` directory since that's where the existing
 scripts live.

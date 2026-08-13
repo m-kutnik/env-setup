@@ -2,7 +2,8 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(dirname "$0")"
-source "$SCRIPT_DIR/_utils/helpers.sh"
+source "$SCRIPT_DIR/../_utils/helpers.sh"
+require_darwin
 
 if ! xcode-select -p &>/dev/null; then
   log "Installing Xcode Command Line Tools..."

@@ -1,9 +1,7 @@
-brew "mise" # development multi-tool https://github.com/jdx/mise
-brew "shfmt" # formatter for shell scripts https://github.com/mvdan/sh
+# Still installed as the brew user — extras `mas` runs via `sudo -Hu brew`,
+# and font casks land in that user's Caskroom.
 brew "wget"
-brew "git"
 brew "mas" # Mac App Store CLI https://github.com/mas-cli/mas
-brew "bitwarden-cli" # Bitwarden CLI https://github.com/bitwarden/cli
 
 cask "font-jetbrains-mono-nerd-font"
 cask "font-meslo-for-powerlevel10k"
