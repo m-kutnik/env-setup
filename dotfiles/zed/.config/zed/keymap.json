@@ -47,5 +47,11 @@
     "bindings": {
       "cmd-shift-a": "agent::ToggleFocus"
     }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-space": "editor::ShowCompletions"
+    }
   }
 ]
